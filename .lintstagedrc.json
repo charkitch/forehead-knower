@@ -1,4 +1,13 @@
 {
-  "*.{js,jsx,ts,tsx}": ["eslint --fix", "prettier --write"],
-  "*.{json,css,md}": ["prettier --write"]
+  "*.{js,jsx,ts,tsx}": [
+    "eslint --fix",
+    "prettier --write",
+    "jest --findRelatedTests"
+  ],
+  "*.{json,css,md}": ["prettier --write"],
+  "*.{ts,tsx}": ["tsc --noEmit"],
+  "package.json": ["sort-package-json", "prettier --write"],
+  "*.md": ["markdown-link-check"],
+  "*.yaml": ["yaml-lint", "prettier --write"],
+  "*.{html,yaml,yml}": ["prettier --write"]
 }
