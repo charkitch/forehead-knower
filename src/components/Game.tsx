@@ -91,12 +91,12 @@ export default function Game() {
           {/* Current Word Display */}
           <div className="bg-white rounded-lg shadow-lg p-6 text-center">
             <h2 className="text-3xl font-bold mb-4">
-              {currentWords[currentWordIndex].word}
+              {currentWords[currentWordIndex]?.word}
             </h2>
-            {showTabooWords && currentWords[currentWordIndex].tabooWords && (
+            {showTabooWords && currentWords[currentWordIndex]?.tabooWords && (
               <div className="space-y-2">
                 <p className="font-semibold">Don't say:</p>
-                {currentWords[currentWordIndex].tabooWords.map(
+                {currentWords[currentWordIndex]?.tabooWords.map(
                   (word, index) => (
                     <div key={index} className="bg-gray-100 p-2 rounded">
                       {word}
