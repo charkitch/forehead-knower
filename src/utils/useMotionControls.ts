@@ -10,7 +10,6 @@ interface MotionControlsConfig {
 
 type Position = "up" | "neutral" | "down";
 
-// Helper function to safely check for iOS permission API
 const checkIOSPermissionAPI = () => {
   try {
     // @ts-expect-error - We intentionally ignore the type here and handle it at runtime
@@ -31,10 +30,12 @@ export const useMotionControls = ({
   const [calibrationBeta, setCalibrationBeta] = useState(0);
   const [currentPosition, setCurrentPosition] = useState<Position>("neutral");
   const [lastBeta, setLastBeta] = useState(0);
+
   const isProcessingAction = useRef(false);
   const lastActionTime = useRef(0);
+  const hasReturnedToNeutral = useRef(true);
+  const betaBuffer = useRef<number[]>([]);
 
-  // Check if device orientation is available
   useEffect(() => {
     if (typeof window === "undefined") return;
 
@@ -54,7 +55,6 @@ export const useMotionControls = ({
           calibrateOrientation();
         }
       } else {
-        // For non-iOS devices, just enable
         setIsMotionEnabled(true);
         calibrateOrientation();
       }
@@ -64,47 +64,65 @@ export const useMotionControls = ({
   };
 
   const calibrateOrientation = () => {
+    isProcessingAction.current = false;
+    hasReturnedToNeutral.current = true;
+    betaBuffer.current = [];
+    lastActionTime.current = 0;
+
     const handler = (event: DeviceOrientationEvent) => {
       setCalibrationBeta(event.beta || 0);
       setCurrentPosition("neutral");
-      isProcessingAction.current = false;
       window.removeEventListener("deviceorientation", handler);
     };
     window.addEventListener("deviceorientation", handler);
+  };
+
+  const getSmoothedBeta = (newBeta: number) => {
+    const BUFFER_SIZE = 5;
+    betaBuffer.current.push(newBeta);
+    if (betaBuffer.current.length > BUFFER_SIZE) {
+      betaBuffer.current.shift();
+    }
+
+    return (
+      betaBuffer.current.reduce((sum, val) => sum + val, 0) /
+      betaBuffer.current.length
+    );
   };
 
   useEffect(() => {
     if (!isMotionEnabled || !enabled) return;
 
     const handleOrientation = (event: DeviceOrientationEvent) => {
-      const beta = event.beta || 0;
-      const betaDiff = beta - calibrationBeta;
+      const rawBeta = event.beta || 0;
+      const smoothedBeta = getSmoothedBeta(rawBeta);
+      const betaDiff = smoothedBeta - calibrationBeta;
 
-      setLastBeta(beta);
+      setLastBeta(smoothedBeta);
 
-      // Don't process if we're in the middle of an action
       if (isProcessingAction.current) {
         return;
       }
 
-      // Determine new position
       let newPosition: Position = "neutral";
-      if (Math.abs(betaDiff) > actionThreshold) {
-        newPosition = betaDiff > 0 ? "up" : "down";
-      } else if (Math.abs(betaDiff) <= neutralThreshold) {
+      if (Math.abs(betaDiff) <= neutralThreshold) {
         newPosition = "neutral";
+        hasReturnedToNeutral.current = true;
+      } else if (Math.abs(betaDiff) > actionThreshold) {
+        newPosition = betaDiff > 0 ? "up" : "down";
       }
 
-      // Only update if position changed
       if (newPosition !== currentPosition) {
         setCurrentPosition(newPosition);
 
-        // If we moved to up or down, trigger action
-        if (newPosition === "up" || newPosition === "down") {
+        if (
+          hasReturnedToNeutral.current &&
+          (newPosition === "up" || newPosition === "down")
+        ) {
           const now = Date.now();
-          // Ensure at least 500ms between actions
-          if (now - lastActionTime.current > 500) {
+          if (now - lastActionTime.current > 1000) {
             isProcessingAction.current = true;
+            hasReturnedToNeutral.current = false;
             lastActionTime.current = now;
 
             if (newPosition === "up") {
@@ -113,7 +131,6 @@ export const useMotionControls = ({
               onFlipDown?.();
             }
 
-            // Reset after 2 seconds
             setTimeout(() => {
               isProcessingAction.current = false;
             }, 2000);
