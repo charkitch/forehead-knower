@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { ChevronUp, ChevronDown } from "lucide-react";
+import { ChevronUp, ChevronDown, Smartphone } from "lucide-react";
 import { defaultThemes } from "@/data/themes";
+import { useMotionControls } from "@/utils/useMotionControls";
 import type { Theme, Word } from "@/types/game";
 
 export default function Game() {
@@ -12,10 +13,24 @@ export default function Game() {
   const [currentWords, setCurrentWords] = useState<Word[]>([]);
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
 
+  const handleCorrect = () => {
+    setCurrentWordIndex((i) => (i + 1) % currentWords.length);
+  };
+
+  const handleSkip = () => {
+    setCurrentWordIndex((i) => (i + 1) % currentWords.length);
+  };
+
+  const { isMotionEnabled, requestMotionPermission, calibrateOrientation } =
+    useMotionControls({
+      onFlipUp: handleCorrect,
+      onFlipDown: handleSkip,
+      enabled: gameState === "playing",
+    });
+
   const startGame = () => {
     if (!selectedTheme) return;
 
-    // Shuffle and select 8 random words from the theme
     const shuffled = [...selectedTheme.words]
       .sort(() => Math.random() - 0.5)
       .slice(0, 8);
@@ -23,6 +38,11 @@ export default function Game() {
     setCurrentWords(shuffled);
     setCurrentWordIndex(0);
     setGameState("playing");
+
+    // Calibrate orientation when game starts
+    if (isMotionEnabled) {
+      calibrateOrientation();
+    }
   };
 
   return (
@@ -30,6 +50,27 @@ export default function Game() {
       {gameState === "ready" && (
         <div className="space-y-4">
           <h1 className="text-2xl font-bold">Forehead Game</h1>
+
+          {/* Motion Controls Setup */}
+          <div className="bg-blue-50 p-4 rounded-lg">
+            <div className="flex items-center gap-2 mb-2">
+              <Smartphone className="w-5 h-5" />
+              <span className="font-medium">Motion Controls</span>
+            </div>
+            {!isMotionEnabled ? (
+              <button
+                onClick={requestMotionPermission}
+                className="w-full bg-blue-500 text-white rounded py-2 px-4 hover:bg-blue-600"
+              >
+                Enable Motion Controls
+              </button>
+            ) : (
+              <p className="text-sm text-blue-600">
+                Motion controls are enabled! Flip your phone up for correct
+                answers and down for skips.
+              </p>
+            )}
+          </div>
 
           {/* Theme Selection */}
           <div className="space-y-2">
@@ -107,22 +148,18 @@ export default function Game() {
             )}
           </div>
 
-          {/* Control Buttons */}
+          {/* Control Buttons (Fallback) */}
           <div className="flex gap-4">
             <button
               className="flex-1 bg-red-500 text-white rounded-lg p-4 flex items-center justify-center"
-              onClick={() =>
-                setCurrentWordIndex((i) => (i + 1) % currentWords.length)
-              }
+              onClick={handleSkip}
             >
               <ChevronDown className="w-6 h-6" />
               <span className="ml-2">Skip</span>
             </button>
             <button
               className="flex-1 bg-green-500 text-white rounded-lg p-4 flex items-center justify-center"
-              onClick={() =>
-                setCurrentWordIndex((i) => (i + 1) % currentWords.length)
-              }
+              onClick={handleCorrect}
             >
               <ChevronUp className="w-6 h-6" />
               <span className="ml-2">Correct</span>
