@@ -1,0 +1,124 @@
+{
+  "id": "sports",
+  "name": "Sports",
+  "description": "Popular sports and activities",
+  "words": [
+    {
+      "word": "Basketball",
+      "tabooWords": ["Hoop", "Court", "Dribble", "Dunk", "NBA"]
+    },
+    {
+      "word": "Soccer",
+      "tabooWords": ["Goal", "Kick", "FIFA", "Ball", "World Cup"]
+    },
+    {
+      "word": "Tennis",
+      "tabooWords": ["Racket", "Serve", "Court", "Net", "Ball"]
+    },
+    {
+      "word": "Baseball",
+      "tabooWords": ["Bat", "Home Run", "Pitcher", "Ball", "MLB"]
+    },
+    { "word": "Golf", "tabooWords": ["Club", "Green", "Hole", "Tee", "Ball"] },
+    {
+      "word": "Cricket",
+      "tabooWords": ["Bat", "Wicket", "Bowler", "Ball", "Match"]
+    },
+    {
+      "word": "Rugby",
+      "tabooWords": ["Scrum", "Tackle", "Ball", "Try", "Field"]
+    },
+    {
+      "word": "American Football",
+      "tabooWords": ["Touchdown", "Quarterback", "NFL", "Ball", "Helmet"]
+    },
+    {
+      "word": "Hockey",
+      "tabooWords": ["Puck", "Ice", "Stick", "Goal", "Skates"]
+    },
+    {
+      "word": "Boxing",
+      "tabooWords": ["Gloves", "Ring", "Punch", "Knockout", "Fight"]
+    },
+    {
+      "word": "Swimming",
+      "tabooWords": ["Pool", "Water", "Lanes", "Goggles", "Stroke"]
+    },
+    {
+      "word": "Cycling",
+      "tabooWords": ["Bike", "Race", "Tour", "Pedal", "Helmet"]
+    },
+    {
+      "word": "Running",
+      "tabooWords": ["Marathon", "Sprint", "Track", "Race", "Shoes"]
+    },
+    {
+      "word": "Skiing",
+      "tabooWords": ["Snow", "Poles", "Slopes", "Goggles", "Skis"]
+    },
+    {
+      "word": "Surfing",
+      "tabooWords": ["Waves", "Board", "Beach", "Ocean", "Ride"]
+    },
+    {
+      "word": "Skateboarding",
+      "tabooWords": ["Board", "Tricks", "Park", "Skate", "Ramp"]
+    },
+    {
+      "word": "Volleyball",
+      "tabooWords": ["Net", "Spike", "Ball", "Beach", "Court"]
+    },
+    {
+      "word": "Badminton",
+      "tabooWords": ["Shuttlecock", "Racket", "Net", "Court", "Serve"]
+    },
+    {
+      "word": "Wrestling",
+      "tabooWords": ["Ring", "Grapple", "Fight", "Pin", "Match"]
+    },
+    {
+      "word": "Karate",
+      "tabooWords": ["Kick", "Punch", "Belt", "Martial Arts", "Fight"]
+    },
+    {
+      "word": "Judo",
+      "tabooWords": ["Throw", "Belt", "Grapple", "Mat", "Hold"]
+    },
+    {
+      "word": "Table Tennis",
+      "tabooWords": ["Paddle", "Ball", "Net", "Serve", "Rally"]
+    },
+    {
+      "word": "Bowling",
+      "tabooWords": ["Pins", "Ball", "Strike", "Alley", "Lane"]
+    },
+    {
+      "word": "Snooker",
+      "tabooWords": ["Cue", "Ball", "Table", "Pockets", "Break"]
+    },
+    {
+      "word": "Fencing",
+      "tabooWords": ["Sword", "Foil", "Lunge", "Point", "Duel"]
+    },
+    {
+      "word": "Gymnastics",
+      "tabooWords": ["Flip", "Bar", "Balance", "Beam", "Routine"]
+    },
+    {
+      "word": "Archery",
+      "tabooWords": ["Bow", "Arrow", "Target", "Aim", "Quiver"]
+    },
+    {
+      "word": "Rowing",
+      "tabooWords": ["Oars", "Boat", "Water", "Stroke", "Crew"]
+    },
+    {
+      "word": "Darts",
+      "tabooWords": ["Board", "Throw", "Bullseye", "Score", "Arrows"]
+    },
+    {
+      "word": "Figure Skating",
+      "tabooWords": ["Ice", "Dance", "Spin", "Jump", "Skates"]
+    }
+  ]
+}

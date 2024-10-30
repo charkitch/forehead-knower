@@ -1,0 +1,133 @@
+{
+  "id": "opera",
+  "name": "Opera",
+  "description": "Famous operas, composers, and characters from the world of opera",
+  "words": [
+    {
+      "word": "La Bohème",
+      "tabooWords": ["Puccini", "Mimi", "Rodolfo", "Paris", "Love"]
+    },
+    {
+      "word": "The Magic Flute",
+      "tabooWords": [
+        "Mozart",
+        "Papageno",
+        "Queen of the Night",
+        "Opera",
+        "Germany"
+      ]
+    },
+    {
+      "word": "Carmen",
+      "tabooWords": ["Bizet", "Spain", "Gypsy", "Habanera", "Don José"]
+    },
+    {
+      "word": "Aida",
+      "tabooWords": ["Verdi", "Egypt", "Slave", "Love", "Radames"]
+    },
+    {
+      "word": "Madama Butterfly",
+      "tabooWords": ["Puccini", "Japan", "Tragedy", "Pinkerton", "Cio-Cio-San"]
+    },
+    {
+      "word": "The Barber of Seville",
+      "tabooWords": ["Rossini", "Comedy", "Figaro", "Opera Buffa", "Spain"]
+    },
+    {
+      "word": "Tosca",
+      "tabooWords": ["Puccini", "Rome", "Tragedy", "Scarpia", "Cavaradossi"]
+    },
+    {
+      "word": "Rigoletto",
+      "tabooWords": ["Verdi", "Jester", "Duke", "Gilda", "Revenge"]
+    },
+    {
+      "word": "The Marriage of Figaro",
+      "tabooWords": ["Mozart", "Comedy", "Opera Buffa", "Servant", "Count"]
+    },
+    {
+      "word": "Don Giovanni",
+      "tabooWords": ["Mozart", "Seducer", "Leporello", "Statue", "Hell"]
+    },
+    {
+      "word": "Turandot",
+      "tabooWords": ["Puccini", "China", "Riddles", "Calaf", "Princess"]
+    },
+    {
+      "word": "Die Fledermaus",
+      "tabooWords": ["Strauss", "Bat", "Comedy", "Vienna", "Party"]
+    },
+    {
+      "word": "Pagliacci",
+      "tabooWords": ["Clown", "Tragedy", "Opera", "Jealousy", "Canio"]
+    },
+    {
+      "word": "The Ring Cycle",
+      "tabooWords": ["Wagner", "Gods", "Valkyrie", "Norse", "Epic"]
+    },
+    {
+      "word": "Lohengrin",
+      "tabooWords": ["Wagner", "Swan", "Elsa", "Germany", "Knight"]
+    },
+    {
+      "word": "Falstaff",
+      "tabooWords": ["Verdi", "Comedy", "Shakespeare", "Knight", "Trickery"]
+    },
+    {
+      "word": "Otello",
+      "tabooWords": ["Verdi", "Shakespeare", "Jealousy", "Iago", "Tragedy"]
+    },
+    {
+      "word": "Parsifal",
+      "tabooWords": ["Wagner", "Holy Grail", "Knight", "Epic", "Redemption"]
+    },
+    {
+      "word": "Der Rosenkavalier",
+      "tabooWords": ["Strauss", "Vienna", "Love", "Comedy", "Knight"]
+    },
+    {
+      "word": "Norma",
+      "tabooWords": ["Bellini", "Druid", "Tragedy", "Rome", "Adalgisa"]
+    },
+    {
+      "word": "La Traviata",
+      "tabooWords": ["Verdi", "Violetta", "Paris", "Love", "Consumption"]
+    },
+    {
+      "word": "Lucia di Lammermoor",
+      "tabooWords": ["Donizetti", "Scotland", "Mad Scene", "Love", "Tragedy"]
+    },
+    {
+      "word": "Tannhäuser",
+      "tabooWords": ["Wagner", "Germany", "Venus", "Redemption", "Knight"]
+    },
+    {
+      "word": "Manon",
+      "tabooWords": ["Massenet", "France", "Love", "Tragedy", "Chevalier"]
+    },
+    {
+      "word": "Fidelio",
+      "tabooWords": ["Beethoven", "Rescue", "Prison", "Freedom", "Leonore"]
+    },
+    {
+      "word": "Cosi fan tutte",
+      "tabooWords": ["Mozart", "Comedy", "Love", "Betrayal", "Disguise"]
+    },
+    {
+      "word": "Nabucco",
+      "tabooWords": ["Verdi", "Babylon", "Hebrews", "Chorus", "Freedom"]
+    },
+    {
+      "word": "Andrea Chénier",
+      "tabooWords": ["Giordano", "French Revolution", "Poet", "Love", "Tragedy"]
+    },
+    {
+      "word": "L'elisir d'amore",
+      "tabooWords": ["Donizetti", "Comedy", "Elixir", "Love", "Nemorino"]
+    },
+    {
+      "word": "Il Trovatore",
+      "tabooWords": ["Verdi", "Gypsy", "Love", "Revenge", "Leonora"]
+    }
+  ]
+}

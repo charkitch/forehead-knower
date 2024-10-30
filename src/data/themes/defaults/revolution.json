@@ -1,0 +1,175 @@
+{
+  "id": "french_revolution_napoleonic",
+  "name": "French Revolutionary/Napoleonic History",
+  "description": "Key events, figures, and battles from the French Revolution and Napoleonic era",
+  "words": [
+    {
+      "word": "Napoleon Bonaparte",
+      "tabooWords": ["Emperor", "France", "Corsica", "Waterloo", "General"]
+    },
+    {
+      "word": "Louis XVI",
+      "tabooWords": [
+        "King",
+        "France",
+        "Execution",
+        "Marie Antoinette",
+        "Monarch"
+      ]
+    },
+    {
+      "word": "Bastille",
+      "tabooWords": ["Prison", "Storming", "July 14", "Revolution", "Paris"]
+    },
+    {
+      "word": "Robespierre",
+      "tabooWords": [
+        "Reign of Terror",
+        "Guillotine",
+        "Committee of Public Safety",
+        "Revolutionary",
+        "Executed"
+      ]
+    },
+    {
+      "word": "Marie Antoinette",
+      "tabooWords": [
+        "Queen",
+        "France",
+        "Execution",
+        "Let them eat cake",
+        "Louis XVI"
+      ]
+    },
+    {
+      "word": "Guillotine",
+      "tabooWords": ["Execution", "Blade", "Head", "Death", "Revolution"]
+    },
+    {
+      "word": "Reign of Terror",
+      "tabooWords": [
+        "Robespierre",
+        "Guillotine",
+        "Executions",
+        "Revolution",
+        "Fear"
+      ]
+    },
+    {
+      "word": "Waterloo",
+      "tabooWords": ["Napoleon", "Battle", "Defeat", "Final", "Wellington"]
+    },
+    {
+      "word": "Directory",
+      "tabooWords": ["Government", "France", "Revolution", "Corrupt", "1795"]
+    },
+    {
+      "word": "Consulate",
+      "tabooWords": ["Government", "Napoleon", "France", "1799", "Power"]
+    },
+    {
+      "word": "Napoleonic Code",
+      "tabooWords": ["Law", "France", "Civil", "Legal", "Reform"]
+    },
+    {
+      "word": "Trafalgar",
+      "tabooWords": ["Battle", "Navy", "Nelson", "Defeat", "Napoleon"]
+    },
+    {
+      "word": "Austerlitz",
+      "tabooWords": ["Battle", "Victory", "Napoleon", "Russia", "1805"]
+    },
+    {
+      "word": "Congress of Vienna",
+      "tabooWords": ["Diplomacy", "Europe", "Napoleon", "Treaty", "1815"]
+    },
+    {
+      "word": "Coalition",
+      "tabooWords": ["Allies", "War", "Napoleon", "Europe", "France"]
+    },
+    {
+      "word": "Coup of 18 Brumaire",
+      "tabooWords": ["Napoleon", "Power", "Overthrow", "Government", "1799"]
+    },
+    {
+      "word": "Battle of Leipzig",
+      "tabooWords": ["Napoleon", "Defeat", "Germany", "Coalition", "1813"]
+    },
+    {
+      "word": "Corsica",
+      "tabooWords": [
+        "Napoleon",
+        "Island",
+        "Birthplace",
+        "France",
+        "Mediterranean"
+      ]
+    },
+    {
+      "word": "French Revolution",
+      "tabooWords": ["1789", "Monarchy", "People", "Rights", "Liberty"]
+    },
+    {
+      "word": "Elba",
+      "tabooWords": ["Napoleon", "Exile", "Island", "Return", "Escape"]
+    },
+    {
+      "word": "Hundred Days",
+      "tabooWords": ["Napoleon", "Return", "Final", "Waterloo", "Exile"]
+    },
+    {
+      "word": "Marat",
+      "tabooWords": [
+        "Journalist",
+        "Assassination",
+        "Revolution",
+        "Radical",
+        "Bathtub"
+      ]
+    },
+    {
+      "word": "Danton",
+      "tabooWords": [
+        "Revolutionary",
+        "Robespierre",
+        "Guillotine",
+        "Leader",
+        "Executed"
+      ]
+    },
+    {
+      "word": "Jacobins",
+      "tabooWords": ["Robespierre", "Radicals", "Revolution", "Club", "Terror"]
+    },
+    {
+      "word": "Girondins",
+      "tabooWords": [
+        "Moderates",
+        "Revolution",
+        "Opposition",
+        "Radicals",
+        "Executed"
+      ]
+    },
+    {
+      "word": "Battle of Borodino",
+      "tabooWords": ["Napoleon", "Russia", "1812", "Invasion", "Bloodiest"]
+    },
+    {
+      "word": "Louis XVIII",
+      "tabooWords": ["King", "Restoration", "Monarch", "France", "Bourbon"]
+    },
+    {
+      "word": "Josephine",
+      "tabooWords": ["Empress", "Napoleon", "Marriage", "Divorce", "Love"]
+    },
+    {
+      "word": "Tuileries",
+      "tabooWords": ["Palace", "Paris", "Revolution", "Royal", "Storming"]
+    },
+    {
+      "word": "Battle of the Pyramids",
+      "tabooWords": ["Napoleon", "Egypt", "Victory", "Cairo", "1798"]
+    }
+  ]
+}
