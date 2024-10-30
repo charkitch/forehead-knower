@@ -4,12 +4,16 @@ interface MotionControlsProps {
   isEnabled: boolean;
   onEnable: () => void;
   onCalibrate: () => void;
+  lastBeta?: number;
+  position?: string;
 }
 
 export function MotionControls({
   isEnabled,
   onEnable,
   onCalibrate,
+  lastBeta = 0,
+  position = "neutral",
 }: MotionControlsProps) {
   return (
     <div className="bg-blue-50 p-4 rounded-lg">
@@ -30,6 +34,10 @@ export function MotionControls({
             Motion controls are enabled! Flip your phone up for correct answers
             and down for skips.
           </p>
+          <div className="text-xs font-mono bg-blue-100 p-2 rounded">
+            <div>Current tilt: {lastBeta.toFixed(1)}°</div>
+            <div>Position: {position}</div>
+          </div>
           <button
             onClick={onCalibrate}
             className="w-full bg-blue-100 text-blue-700 rounded py-2 px-4 hover:bg-blue-200 text-sm"
