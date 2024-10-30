@@ -1,11 +1,11 @@
-// utils/useMotionControls.ts
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 interface MotionControlsConfig {
   onFlipUp?: () => void;
   onFlipDown?: () => void;
   threshold?: number;
   enabled?: boolean;
+  cooldownPeriod?: number;
 }
 
 interface DeviceOrientationEventStatic extends EventTarget {
@@ -18,15 +18,21 @@ declare global {
   }
 }
 
+type FlipState = "neutral" | "up" | "down";
+
 export const useMotionControls = ({
   onFlipUp,
   onFlipDown,
   threshold = 45,
   enabled = false,
+  cooldownPeriod = 2000, // 2 seconds cooldown between actions
 }: MotionControlsConfig) => {
   const [isMotionEnabled, setIsMotionEnabled] = useState(false);
-  const [lastBeta, setLastBeta] = useState(0);
   const [calibrationBeta, setCalibrationBeta] = useState(0);
+  const [lastBeta, setLastBeta] = useState(0);
+  const [flipState, setFlipState] = useState<FlipState>("neutral");
+  const lastActionTime = useRef<number>(0);
+  const isCooldownActive = useRef(false);
 
   useEffect(() => {
     if (typeof window !== "undefined" && window.DeviceOrientationEvent) {
@@ -59,9 +65,21 @@ export const useMotionControls = ({
       "deviceorientation",
       function handler(event: DeviceOrientationEvent) {
         setCalibrationBeta(event.beta || 0);
+        setFlipState("neutral");
+        isCooldownActive.current = false;
         window.removeEventListener("deviceorientation", handler);
       },
     );
+  };
+
+  const startCooldown = () => {
+    isCooldownActive.current = true;
+    lastActionTime.current = Date.now();
+
+    setTimeout(() => {
+      isCooldownActive.current = false;
+      setFlipState("neutral");
+    }, cooldownPeriod);
   };
 
   useEffect(() => {
@@ -71,23 +89,36 @@ export const useMotionControls = ({
       const beta = event.beta || 0;
       setLastBeta(beta);
 
+      if (isCooldownActive.current) {
+        return;
+      }
+
       // Calculate the difference from calibration position
       const betaDiff = beta - calibrationBeta;
 
+      // Only trigger if we're in neutral state or moving to a different state
       if (Math.abs(betaDiff) > threshold) {
-        // Flip up (positive beta difference)
-        if (betaDiff > threshold) {
-          onFlipUp?.();
+        const newState: FlipState = betaDiff > threshold ? "up" : "down";
+
+        // Only trigger if we're moving to a different state
+        if (newState !== flipState) {
+          setFlipState(newState);
+
+          if (newState === "up") {
+            onFlipUp?.();
+          } else if (newState === "down") {
+            onFlipDown?.();
+          }
+
+          startCooldown();
         }
-        // Flip down (negative beta difference)
-        else if (betaDiff < -threshold) {
-          onFlipDown?.();
-        }
+      } else if (Math.abs(betaDiff) < threshold / 2) {
+        // Reset to neutral when close to calibration position
+        setFlipState("neutral");
       }
     };
 
     window.addEventListener("deviceorientation", handleOrientation);
-    calibrateOrientation();
 
     return () => {
       window.removeEventListener("deviceorientation", handleOrientation);
@@ -99,6 +130,7 @@ export const useMotionControls = ({
     threshold,
     onFlipUp,
     onFlipDown,
+    flipState,
   ]);
 
   return {
@@ -106,5 +138,6 @@ export const useMotionControls = ({
     requestMotionPermission,
     calibrateOrientation,
     lastBeta,
+    flipState,
   };
 };
