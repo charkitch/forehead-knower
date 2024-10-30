@@ -1,0 +1,187 @@
+{
+  "id": "world_cities",
+  "name": "Famous World Cities",
+  "description": "Renowned cities from across the globe",
+  "words": [
+    {
+      "word": "New York",
+      "tabooWords": [
+        "Big Apple",
+        "USA",
+        "Statue of Liberty",
+        "Times Square",
+        "Manhattan"
+      ]
+    },
+    {
+      "word": "London",
+      "tabooWords": ["UK", "Big Ben", "Thames", "England", "Buckingham Palace"]
+    },
+    {
+      "word": "Paris",
+      "tabooWords": [
+        "France",
+        "Eiffel Tower",
+        "Louvre",
+        "City of Love",
+        "Seine"
+      ]
+    },
+    {
+      "word": "Tokyo",
+      "tabooWords": ["Japan", "Mount Fuji", "Shibuya", "Sushi", "Skyscrapers"]
+    },
+    {
+      "word": "Sydney",
+      "tabooWords": [
+        "Australia",
+        "Opera House",
+        "Harbour Bridge",
+        "Kangaroo",
+        "Beach"
+      ]
+    },
+    {
+      "word": "Dubai",
+      "tabooWords": ["UAE", "Burj Khalifa", "Desert", "Skyscrapers", "Luxury"]
+    },
+    {
+      "word": "Moscow",
+      "tabooWords": ["Russia", "Kremlin", "Red Square", "Cold", "Vodka"]
+    },
+    {
+      "word": "Rio de Janeiro",
+      "tabooWords": [
+        "Brazil",
+        "Christ the Redeemer",
+        "Carnival",
+        "Beach",
+        "Samba"
+      ]
+    },
+    {
+      "word": "Beijing",
+      "tabooWords": [
+        "China",
+        "Forbidden City",
+        "Great Wall",
+        "Capital",
+        "Olympics"
+      ]
+    },
+    {
+      "word": "Los Angeles",
+      "tabooWords": ["Hollywood", "USA", "Movies", "Beaches", "Stars"]
+    },
+    {
+      "word": "Berlin",
+      "tabooWords": [
+        "Germany",
+        "Wall",
+        "Brandenburg Gate",
+        "History",
+        "Capital"
+      ]
+    },
+    {
+      "word": "Rome",
+      "tabooWords": ["Italy", "Colosseum", "Vatican", "History", "Ancient"]
+    },
+    {
+      "word": "Barcelona",
+      "tabooWords": ["Spain", "Gaudí", "Beach", "Football", "Sagrada Familia"]
+    },
+    {
+      "word": "Mumbai",
+      "tabooWords": [
+        "India",
+        "Bollywood",
+        "Crowded",
+        "Gateway of India",
+        "Financial"
+      ]
+    },
+    {
+      "word": "Istanbul",
+      "tabooWords": ["Turkey", "Hagia Sophia", "Bosporus", "History", "Bazaars"]
+    },
+    {
+      "word": "Cairo",
+      "tabooWords": ["Egypt", "Pyramids", "Nile", "Desert", "Ancient"]
+    },
+    {
+      "word": "Bangkok",
+      "tabooWords": ["Thailand", "Temples", "Street Food", "Buddha", "River"]
+    },
+    {
+      "word": "Seoul",
+      "tabooWords": ["South Korea", "Technology", "K-pop", "Gangnam", "Capital"]
+    },
+    {
+      "word": "Mexico City",
+      "tabooWords": ["Mexico", "Aztec", "Capital", "Food", "Tacos"]
+    },
+    {
+      "word": "Cape Town",
+      "tabooWords": [
+        "South Africa",
+        "Table Mountain",
+        "Nelson Mandela",
+        "Beach",
+        "Wine"
+      ]
+    },
+    {
+      "word": "Toronto",
+      "tabooWords": ["Canada", "CN Tower", "Hockey", "Diversity", "Lake"]
+    },
+    {
+      "word": "Buenos Aires",
+      "tabooWords": ["Argentina", "Tango", "Steak", "Football", "Plaza de Mayo"]
+    },
+    {
+      "word": "Lisbon",
+      "tabooWords": ["Portugal", "Hills", "Trams", "Ocean", "Tiles"]
+    },
+    {
+      "word": "Athens",
+      "tabooWords": [
+        "Greece",
+        "Acropolis",
+        "Parthenon",
+        "Ancient",
+        "Philosophy"
+      ]
+    },
+    {
+      "word": "Amsterdam",
+      "tabooWords": ["Netherlands", "Canals", "Bicycles", "Windmills", "Tulips"]
+    },
+    {
+      "word": "Vienna",
+      "tabooWords": ["Austria", "Music", "Opera", "Palaces", "Coffee"]
+    },
+    {
+      "word": "Stockholm",
+      "tabooWords": [
+        "Sweden",
+        "Islands",
+        "Nobel Prize",
+        "Scandinavia",
+        "Design"
+      ]
+    },
+    {
+      "word": "Singapore",
+      "tabooWords": ["Asia", "City-State", "Clean", "Technology", "Business"]
+    },
+    {
+      "word": "Havana",
+      "tabooWords": ["Cuba", "Cigars", "Vintage Cars", "Rum", "Salsa"]
+    },
+    {
+      "word": "Dubai",
+      "tabooWords": ["UAE", "Burj Khalifa", "Luxury", "Desert", "Skyscrapers"]
+    }
+  ]
+}
