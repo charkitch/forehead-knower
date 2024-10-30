@@ -1,13 +1,15 @@
-interface FeedbackMessageProps {
+import { BasicModal } from "@/components/BasicModal";
+
+interface FeedbackModalProps {
   message: string;
 }
 
-export const FeedbackMessage: React.FC<FeedbackMessageProps> = ({
-  message,
-}) => {
+export function FeedbackMessage({ message }: FeedbackModalProps) {
   return (
-    <div className="feedback-message text-lg font-semibold text-center">
-      {message}
-    </div>
+    <BasicModal>
+      <div className="feedback-modal text-2xl font-bold text-center">
+        {message}
+      </div>
+    </BasicModal>
   );
-};
+}

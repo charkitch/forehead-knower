@@ -38,7 +38,7 @@ export default function Game() {
     }, TWO_SECONDS);
   };
 
-  const handleSkip = () => {
+  const handleIncorrect = () => {
     setFeedback("Incorrect!");
     setTimeout(() => {
       setFeedback(null);
@@ -49,7 +49,7 @@ export default function Game() {
   const { isMotionEnabled, requestMotionPermission, calibrateOrientation } =
     useMotionControls({
       onFlipUp: handleCorrect,
-      onFlipDown: handleSkip,
+      onFlipDown: handleIncorrect,
       enabled: gameState === "playing",
     });
 
@@ -89,7 +89,7 @@ export default function Game() {
           showTabooWords={showTabooWords}
         />
 
-        <GameControls onSkip={handleSkip} onCorrect={handleCorrect} />
+        <GameControls onSkip={handleIncorrect} onCorrect={handleCorrect} />
 
         {feedback && <FeedbackMessage message={feedback} />}
       </div>
