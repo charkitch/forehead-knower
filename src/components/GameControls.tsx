@@ -13,7 +13,7 @@ export function GameControls({ onSkip, onCorrect }: GameControlsProps) {
         onClick={onSkip}
       >
         <ChevronDown className="w-6 h-6" />
-        <span className="ml-2">Skip</span>
+        <span className="ml-2">Wrong</span>
       </button>
       <button
         className="flex-1 bg-green-500 text-white rounded-lg p-4 flex items-center justify-center"

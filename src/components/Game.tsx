@@ -9,6 +9,7 @@ import { GameProgress } from "@/components/GameProgress";
 import { CurrentWord } from "@/components/CurrentWord";
 import { StartGameButton } from "@/components/StartGameButton";
 import { TabooWordsCheckbox } from "@/components/TabooWordsCheckbox";
+import { FeedbackMessage } from "@/components/FeedbackMessage";
 
 export default function Game() {
   const [gameState, setGameState] = useState<"ready" | "playing" | "finished">(
@@ -18,6 +19,7 @@ export default function Game() {
   const [selectedTheme, setSelectedTheme] = useState<Theme | null>(null);
   const [currentWords, setCurrentWords] = useState<Word[]>([]);
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
+  const [feedback, setFeedback] = useState<string | null>(null);
 
   const getCurrentWord = (): Word | null => {
     if (currentWords.length === 0 || currentWordIndex >= currentWords.length) {
@@ -25,18 +27,29 @@ export default function Game() {
     }
     return currentWords[currentWordIndex] ?? null;
   };
+
+  const TWO_SECONDS = 2000;
+
   const handleCorrect = () => {
-    setCurrentWordIndex((i) => (i + 1) % currentWords.length);
+    setFeedback("Correct!");
+    setTimeout(() => {
+      setFeedback(null);
+      setCurrentWordIndex((i) => (i + 1) % currentWords.length);
+    }, TWO_SECONDS);
   };
 
-  const handleSkip = () => {
-    setCurrentWordIndex((i) => (i + 1) % currentWords.length);
+  const handleIncorrect = () => {
+    setFeedback("Incorrect!");
+    setTimeout(() => {
+      setFeedback(null);
+      setCurrentWordIndex((i) => (i + 1) % currentWords.length);
+    }, TWO_SECONDS);
   };
 
   const { isMotionEnabled, requestMotionPermission, calibrateOrientation } =
     useMotionControls({
       onFlipUp: handleCorrect,
-      onFlipDown: handleSkip,
+      onFlipDown: handleIncorrect,
       enabled: gameState === "playing",
     });
 
@@ -76,7 +89,9 @@ export default function Game() {
           showTabooWords={showTabooWords}
         />
 
-        <GameControls onSkip={handleSkip} onCorrect={handleCorrect} />
+        <GameControls onSkip={handleIncorrect} onCorrect={handleCorrect} />
+
+        {feedback && <FeedbackMessage message={feedback} />}
       </div>
     );
   };
