@@ -3,52 +3,63 @@ import { useState, useEffect, useRef } from "react";
 interface MotionControlsConfig {
   onFlipUp?: () => void;
   onFlipDown?: () => void;
-  neutralThreshold?: number; // How close to starting position is considered neutral
-  actionThreshold?: number; // How far from neutral to trigger an action
+  neutralThreshold?: number;
+  actionThreshold?: number;
   enabled?: boolean;
 }
 
 type Position = "up" | "neutral" | "down";
 
+// Helper function to safely check for iOS permission API
+const checkIOSPermissionAPI = () => {
+  try {
+    // @ts-expect-error - We intentionally ignore the type here and handle it at runtime
+    return typeof DeviceOrientationEvent.requestPermission === "function";
+  } catch {
+    return false;
+  }
+};
+
 export const useMotionControls = ({
   onFlipUp,
   onFlipDown,
-  neutralThreshold = 15, // ±15 degrees from start is considered neutral
-  actionThreshold = 45, // ±45 degrees from start triggers action
+  neutralThreshold = 15,
+  actionThreshold = 45,
   enabled = false,
 }: MotionControlsConfig) => {
   const [isMotionEnabled, setIsMotionEnabled] = useState(false);
   const [calibrationBeta, setCalibrationBeta] = useState(0);
   const [currentPosition, setCurrentPosition] = useState<Position>("neutral");
-  const [debugInfo, setDebugInfo] = useState({ beta: 0, diff: 0 });
+  const [lastBeta, setLastBeta] = useState(0);
   const isProcessingAction = useRef(false);
   const lastActionTime = useRef(0);
 
-  // Initialize motion permission
+  // Check if device orientation is available
   useEffect(() => {
-    if (typeof window !== "undefined" && window.DeviceOrientationEvent) {
-      if (
-        typeof window.DeviceOrientationEvent.requestPermission === "function"
-      ) {
-        setIsMotionEnabled(false);
-      } else {
-        setIsMotionEnabled(true);
-      }
+    if (typeof window === "undefined") return;
+
+    const requiresPermission = checkIOSPermissionAPI();
+    if (!requiresPermission) {
+      setIsMotionEnabled(true);
     }
   }, []);
 
   const requestMotionPermission = async () => {
-    if (typeof window.DeviceOrientationEvent.requestPermission === "function") {
-      try {
-        const permission =
-          await window.DeviceOrientationEvent.requestPermission();
+    try {
+      if (checkIOSPermissionAPI()) {
+        // @ts-expect-error - We intentionally ignore the type here and handle it at runtime
+        const permission = await DeviceOrientationEvent.requestPermission();
         if (permission === "granted") {
           setIsMotionEnabled(true);
           calibrateOrientation();
         }
-      } catch (error) {
-        console.error("Error requesting motion permission:", error);
+      } else {
+        // For non-iOS devices, just enable
+        setIsMotionEnabled(true);
+        calibrateOrientation();
       }
+    } catch (error) {
+      console.error("Error requesting motion permission:", error);
     }
   };
 
@@ -69,7 +80,7 @@ export const useMotionControls = ({
       const beta = event.beta || 0;
       const betaDiff = beta - calibrationBeta;
 
-      setDebugInfo({ beta, diff: betaDiff });
+      setLastBeta(beta);
 
       // Don't process if we're in the middle of an action
       if (isProcessingAction.current) {
@@ -130,6 +141,6 @@ export const useMotionControls = ({
     requestMotionPermission,
     calibrateOrientation,
     currentPosition,
-    debugInfo, // Useful for debugging motion issues
+    lastBeta,
   };
 };
