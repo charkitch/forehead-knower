@@ -31,6 +31,7 @@ export default function Game() {
   const TWO_SECONDS = 2000;
 
   const handleCorrect = () => {
+    if (feedback) return; // Don't handle new actions while feedback is showing
     setFeedback("Correct!");
     setTimeout(() => {
       setFeedback(null);
@@ -39,6 +40,7 @@ export default function Game() {
   };
 
   const handleIncorrect = () => {
+    if (feedback) return; // Don't handle new actions while feedback is showing
     setFeedback("Incorrect!");
     setTimeout(() => {
       setFeedback(null);
