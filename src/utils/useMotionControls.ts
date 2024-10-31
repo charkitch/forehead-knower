@@ -1,4 +1,7 @@
 import { useState, useEffect, useRef } from "react";
+import { calculateSmoothedBeta } from "@/utils/calculateSmoothBeta";
+import { checkIOSPermissionAPI } from "@/utils/checkIOSPermissionAPI";
+import { handleOrientation } from "@/utils/handleOrientation";
 
 interface MotionControlsConfig {
   onFlipUp?: () => void;
@@ -6,18 +9,10 @@ interface MotionControlsConfig {
   neutralThreshold?: number;
   actionThreshold?: number;
   enabled?: boolean;
+  deviceOrientationEvent?: Partial<typeof window.DeviceOrientationEvent>;
 }
 
 type Position = "up" | "neutral" | "down";
-
-const checkIOSPermissionAPI = () => {
-  try {
-    // @ts-expect-error - We intentionally ignore the type here and handle it at runtime
-    return typeof DeviceOrientationEvent.requestPermission === "function";
-  } catch {
-    return false;
-  }
-};
 
 export const useMotionControls = ({
   onFlipUp,
@@ -25,36 +20,29 @@ export const useMotionControls = ({
   neutralThreshold = 15,
   actionThreshold = 45,
   enabled = false,
+  deviceOrientationEvent = window.DeviceOrientationEvent, // pass in so we can mock in tests
 }: MotionControlsConfig) => {
   const [isMotionEnabled, setIsMotionEnabled] = useState(false);
   const [calibrationBeta, setCalibrationBeta] = useState(0);
   const [currentPosition, setCurrentPosition] = useState<Position>("neutral");
   const [lastBeta, setLastBeta] = useState(0);
+  const [smoothedBeta, setSmoothedBeta] = useState(0);
 
   const isProcessingAction = useRef(false);
   const lastActionTime = useRef(0);
   const hasReturnedToNeutral = useRef(true);
-  const betaBuffer = useRef<number[]>([]);
-
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-
-    const requiresPermission = checkIOSPermissionAPI();
-    if (!requiresPermission) {
-      setIsMotionEnabled(true);
-    }
-  }, []);
+  const betaValues = useRef<number[]>([]);
 
   const requestMotionPermission = async () => {
     try {
       if (checkIOSPermissionAPI()) {
         // @ts-expect-error - We intentionally ignore the type here and handle it at runtime
-        const permission = await DeviceOrientationEvent.requestPermission();
+        const permission = await deviceOrientationEvent.requestPermission();
         if (permission === "granted") {
           setIsMotionEnabled(true);
           calibrateOrientation();
         }
-      } else {
+      } else if (deviceOrientationEvent) {
         setIsMotionEnabled(true);
         calibrateOrientation();
       }
@@ -64,84 +52,59 @@ export const useMotionControls = ({
   };
 
   const calibrateOrientation = () => {
+    betaValues.current = [];
     isProcessingAction.current = false;
     hasReturnedToNeutral.current = true;
-    betaBuffer.current = [];
     lastActionTime.current = 0;
 
     const handler = (event: DeviceOrientationEvent) => {
-      setCalibrationBeta(event.beta || 0);
+      const beta = event.beta || 0;
+      setCalibrationBeta(beta);
+      smoothBeta(beta);
       setCurrentPosition("neutral");
       window.removeEventListener("deviceorientation", handler);
     };
+
     window.addEventListener("deviceorientation", handler);
   };
 
-  const getSmoothedBeta = (newBeta: number) => {
-    const BUFFER_SIZE = 5;
-    betaBuffer.current.push(newBeta);
-    if (betaBuffer.current.length > BUFFER_SIZE) {
-      betaBuffer.current.shift();
+  const smoothBeta = (newBeta: number): number => {
+    const values = betaValues.current;
+    values.push(newBeta);
+
+    if (values.length > 5) {
+      values.shift();
     }
 
-    return (
-      betaBuffer.current.reduce((sum, val) => sum + val, 0) /
-      betaBuffer.current.length
-    );
+    const average = calculateSmoothedBeta(values);
+    setSmoothedBeta(average);
+    return average;
   };
 
   useEffect(() => {
     if (!isMotionEnabled || !enabled) return;
 
-    const handleOrientation = (event: DeviceOrientationEvent) => {
-      const rawBeta = event.beta || 0;
-      const smoothedBeta = getSmoothedBeta(rawBeta);
-      const betaDiff = smoothedBeta - calibrationBeta;
-
-      setLastBeta(smoothedBeta);
-
-      if (isProcessingAction.current) {
-        return;
-      }
-
-      let newPosition: Position = "neutral";
-      if (Math.abs(betaDiff) <= neutralThreshold) {
-        newPosition = "neutral";
-        hasReturnedToNeutral.current = true;
-      } else if (Math.abs(betaDiff) > actionThreshold) {
-        newPosition = betaDiff > 0 ? "up" : "down";
-      }
-
-      if (newPosition !== currentPosition) {
-        setCurrentPosition(newPosition);
-
-        if (
-          hasReturnedToNeutral.current &&
-          (newPosition === "up" || newPosition === "down")
-        ) {
-          const now = Date.now();
-          if (now - lastActionTime.current > 1000) {
-            isProcessingAction.current = true;
-            hasReturnedToNeutral.current = false;
-            lastActionTime.current = now;
-
-            if (newPosition === "up") {
-              onFlipUp?.();
-            } else {
-              onFlipDown?.();
-            }
-
-            setTimeout(() => {
-              isProcessingAction.current = false;
-            }, 2000);
-          }
-        }
-      }
+    const handleOrientationWrapper = (event: DeviceOrientationEvent) => {
+      handleOrientation({
+        event,
+        setLastBeta,
+        smoothBeta,
+        calibrationBeta,
+        neutralThreshold,
+        actionThreshold,
+        currentPosition,
+        setCurrentPosition,
+        onFlipUp,
+        onFlipDown,
+        isProcessingAction,
+        lastActionTime,
+        hasReturnedToNeutral,
+      });
     };
 
-    window.addEventListener("deviceorientation", handleOrientation);
+    window.addEventListener("deviceorientation", handleOrientationWrapper);
     return () =>
-      window.removeEventListener("deviceorientation", handleOrientation);
+      window.removeEventListener("deviceorientation", handleOrientationWrapper);
   }, [
     isMotionEnabled,
     enabled,
@@ -159,5 +122,6 @@ export const useMotionControls = ({
     calibrateOrientation,
     currentPosition,
     lastBeta,
+    smoothedBeta,
   };
 };
