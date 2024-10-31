@@ -8,14 +8,14 @@ import { ThemeSelector } from "@/components/ThemeSelector";
 import { GameProgress } from "@/components/GameProgress";
 import { CurrentWord } from "@/components/CurrentWord";
 import { StartGameButton } from "@/components/StartGameButton";
-import { TabooWordsCheckbox } from "@/components/TabooWordsCheckbox";
+import { SpoilerWordsCheckbox } from "@/components/SpoilerWordsCheckbox";
 import { FeedbackMessage } from "@/components/FeedbackMessage";
 
 export default function Game() {
   const [gameState, setGameState] = useState<"ready" | "playing" | "finished">(
     "ready",
   );
-  const [showTabooWords, setShowTabooWords] = useState(true);
+  const [showSpoilerWords, setShowSpoilerWords] = useState(true);
   const [selectedTheme, setSelectedTheme] = useState<Theme | null>(null);
   const [currentWords, setCurrentWords] = useState<Word[]>([]);
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
@@ -87,8 +87,8 @@ export default function Game() {
 
         <CurrentWord
           word={currentWord.word}
-          tabooWords={currentWord.tabooWords}
-          showTabooWords={showTabooWords}
+          spoilerWords={currentWord.spoilerWords}
+          showSpoilerWords={showSpoilerWords}
         />
 
         <GameControls onSkip={handleIncorrect} onCorrect={handleCorrect} />
@@ -115,9 +115,9 @@ export default function Game() {
             onThemeChange={setSelectedTheme}
           />
 
-          <TabooWordsCheckbox
-            checked={showTabooWords}
-            onChange={(e) => setShowTabooWords(e.target.checked)}
+          <SpoilerWordsCheckbox
+            checked={showSpoilerWords}
+            onChange={(e) => setShowSpoilerWords(e.target.checked)}
           />
 
           <StartGameButton onClick={startGame} disabled={!selectedTheme} />

@@ -1,6 +1,6 @@
 export interface Word {
   word: string;
-  tabooWords?: string[];
+  spoilerWords?: string[];
   theme: string;
 }
 
@@ -13,17 +13,17 @@ export const themes = [
 export const words: Word[] = [
   {
     word: "Lion King",
-    tabooWords: ["Simba", "Mufasa", "Disney", "Pride Rock", "Hakuna Matata"],
+    spoilerWords: ["Simba", "Mufasa", "Disney", "Pride Rock", "Hakuna Matata"],
     theme: "movies",
   },
   {
     word: "Elephant",
-    tabooWords: ["Trunk", "Gray", "Big", "Safari", "Tusks"],
+    spoilerWords: ["Trunk", "Gray", "Big", "Safari", "Tusks"],
     theme: "animals",
   },
   {
     word: "Pizza",
-    tabooWords: ["Cheese", "Pepperoni", "Italy", "Crust", "Slice"],
+    spoilerWords: ["Cheese", "Pepperoni", "Italy", "Crust", "Slice"],
     theme: "food",
   },
   // Add more words as needed...
