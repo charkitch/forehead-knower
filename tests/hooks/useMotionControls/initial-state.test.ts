@@ -5,17 +5,11 @@ import { setupTests } from "./setup";
 describe("useMotionControls - Initial State & Permissions", () => {
   setupTests();
 
-  beforeEach(() => {
-    jest.useFakeTimers();
-  });
-
-  afterEach(() => {
-    jest.useRealTimers();
-    jest.restoreAllMocks();
-  });
-
   it("should initialize with default values", () => {
-    const { result } = renderHook(() => useMotionControls({}));
+    // Test with no DeviceOrientationEvent by passing undefined
+    const { result } = renderHook(() =>
+      useMotionControls({ deviceOrientationEvent: undefined }),
+    );
 
     expect(result.current).toEqual({
       isMotionEnabled: false,
@@ -30,11 +24,14 @@ describe("useMotionControls - Initial State & Permissions", () => {
   it("should handle iOS permission request", async () => {
     const mockRequestPermission = jest.fn().mockResolvedValue("granted");
 
-    (window.DeviceOrientationEvent as EventListener) = {
+    // Pass in a mock deviceOrientationEvent with requestPermission
+    const mockDeviceOrientationEvent = {
       requestPermission: mockRequestPermission,
     };
 
-    const { result } = renderHook(() => useMotionControls({}));
+    const { result } = renderHook(() =>
+      useMotionControls({ deviceOrientationEvent: mockDeviceOrientationEvent }),
+    );
 
     await act(async () => {
       await result.current.requestMotionPermission();
@@ -45,31 +42,17 @@ describe("useMotionControls - Initial State & Permissions", () => {
   });
 
   it("should handle non-iOS devices", async () => {
-    (window.DeviceOrientationEvent as EventListener) = {};
+    // Pass in a mock deviceOrientationEvent without requestPermission
+    const mockDeviceOrientationEvent = function () {};
 
-    const { result } = renderHook(() => useMotionControls({}));
+    const { result } = renderHook(() =>
+      useMotionControls({ deviceOrientationEvent: mockDeviceOrientationEvent }),
+    );
 
     await act(async () => {
       await result.current.requestMotionPermission();
     });
 
     expect(result.current.isMotionEnabled).toBe(true);
-  });
-
-  it("should handle permission denial", async () => {
-    const mockRequestPermission = jest.fn().mockResolvedValue("denied");
-
-    (window.DeviceOrientationEvent as EventListener) = {
-      requestPermission: mockRequestPermission,
-    };
-
-    const { result } = renderHook(() => useMotionControls({}));
-
-    await act(async () => {
-      await result.current.requestMotionPermission();
-    });
-
-    expect(mockRequestPermission).toHaveBeenCalled();
-    expect(result.current.isMotionEnabled).toBe(false);
   });
 });

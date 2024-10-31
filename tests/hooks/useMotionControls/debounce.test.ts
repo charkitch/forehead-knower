@@ -18,27 +18,30 @@ describe("useMotionControls - Debouncing & Smoothing", () => {
   });
 
   const createEventHandlerTracker = () => {
-    const handlers = new Set<(event: Event) => void>();
+    type DeviceOrientationHandler = (event: DeviceOrientationEvent) => void;
+    const handlers = new Set<DeviceOrientationHandler>();
 
+    // Use type assertion to match Window's addEventListener signature
     window.addEventListener = jest.fn(
-      (event: string, handler: EventListener) => {
-        if (event === "deviceorientation") {
-          handlers.add(handler);
+      (type: string, listener: EventListenerOrEventListenerObject) => {
+        if (type === "deviceorientation") {
+          handlers.add(listener as DeviceOrientationHandler);
         }
       },
-    );
+    ) as typeof window.addEventListener;
 
     window.removeEventListener = jest.fn(
-      (event: string, handler: EventListener) => {
-        if (event === "deviceorientation") {
-          handlers.delete(handler);
+      (type: string, listener: EventListenerOrEventListenerObject) => {
+        if (type === "deviceorientation") {
+          handlers.delete(listener as DeviceOrientationHandler);
         }
       },
-    );
+    ) as typeof window.removeEventListener;
 
     return handlers;
   };
 
+  // Rest of the test file remains the same...
   it("should debounce multiple quick motions", async () => {
     const handlers = createEventHandlerTracker();
     const onFlipUp = jest.fn();
