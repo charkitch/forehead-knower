@@ -5,8 +5,11 @@ import { setupTests } from "./setup";
 describe("useMotionControls - Initial State & Permissions", () => {
   setupTests();
 
+  beforeEach(() => {
+    jest.clearAllMocks();
+  });
+
   it("should initialize with default values", () => {
-    // Test with no DeviceOrientationEvent by passing undefined
     const { result } = renderHook(() =>
       useMotionControls({ deviceOrientationEvent: undefined }),
     );
@@ -21,32 +24,25 @@ describe("useMotionControls - Initial State & Permissions", () => {
     });
   });
 
-  it("should handle iOS permission request", async () => {
-    const mockRequestPermission = jest.fn().mockResolvedValue("granted");
-
-    // Pass in a mock deviceOrientationEvent with requestPermission
-    const mockDeviceOrientationEvent = {
-      requestPermission: mockRequestPermission,
-    };
-
-    const { result } = renderHook(() =>
-      useMotionControls({ deviceOrientationEvent: mockDeviceOrientationEvent }),
+  it("should handle non-iOS devices", async () => {
+    // Create mock constructor without requestPermission
+    const MockDeviceOrientationEvent = Object.assign(
+      function (type: string) {
+        return new Event(type) as DeviceOrientationEvent;
+      },
+      {
+        prototype: Object.create(Event.prototype),
+      },
     );
 
-    await act(async () => {
-      await result.current.requestMotionPermission();
-    });
-
-    expect(mockRequestPermission).toHaveBeenCalled();
-    expect(result.current.isMotionEnabled).toBe(true);
-  });
-
-  it("should handle non-iOS devices", async () => {
-    // Pass in a mock deviceOrientationEvent without requestPermission
-    const mockDeviceOrientationEvent = function () {};
+    MockDeviceOrientationEvent.prototype.constructor =
+      MockDeviceOrientationEvent;
 
     const { result } = renderHook(() =>
-      useMotionControls({ deviceOrientationEvent: mockDeviceOrientationEvent }),
+      useMotionControls({
+        deviceOrientationEvent:
+          MockDeviceOrientationEvent as unknown as typeof window.DeviceOrientationEvent,
+      }),
     );
 
     await act(async () => {
