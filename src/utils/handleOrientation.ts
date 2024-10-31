@@ -38,28 +38,32 @@ export const handleOrientation = ({
 
   const smoothedValue = smoothBeta(beta);
   const betaDiff = smoothedValue - calibrationBeta;
+  const absBetaDiff = Math.abs(betaDiff);
 
-  if (isProcessingAction.current) {
+  // First handle neutral position detection
+  if (absBetaDiff <= neutralThreshold) {
+    if (currentPosition !== "neutral") {
+      setCurrentPosition("neutral");
+      hasReturnedToNeutral.current = true;
+      // Only reset processing state if we've truly returned to neutral
+      if (isProcessingAction.current) {
+        setTimeout(() => {
+          isProcessingAction.current = false;
+        }, 500); // Shorter cooldown when returning to neutral
+      }
+    }
     return;
   }
 
-  let newPosition: Position = "neutral";
-  if (Math.abs(betaDiff) <= neutralThreshold) {
-    newPosition = "neutral";
-    hasReturnedToNeutral.current = true;
-  } else if (Math.abs(betaDiff) > actionThreshold) {
+  // Handle transitions between positions
+  let newPosition: Position = currentPosition;
+
+  if (absBetaDiff > actionThreshold) {
     newPosition = betaDiff > 0 ? "up" : "down";
-  }
 
-  if (newPosition !== currentPosition) {
-    setCurrentPosition(newPosition);
-
-    if (
-      hasReturnedToNeutral.current &&
-      (newPosition === "up" || newPosition === "down")
-    ) {
+    if (hasReturnedToNeutral.current && !isProcessingAction.current) {
       const now = Date.now();
-      if (now - lastActionTime.current > 1000) {
+      if (now - lastActionTime.current >= 1000) {
         isProcessingAction.current = true;
         hasReturnedToNeutral.current = false;
         lastActionTime.current = now;
@@ -69,11 +73,15 @@ export const handleOrientation = ({
         } else {
           onFlipDown?.();
         }
-
-        setTimeout(() => {
-          isProcessingAction.current = false;
-        }, 2000);
       }
     }
+  } else if (currentPosition !== "neutral") {
+    // When between neutral and action thresholds, return to neutral
+    newPosition = "neutral";
+    hasReturnedToNeutral.current = true;
+  }
+
+  if (newPosition !== currentPosition) {
+    setCurrentPosition(newPosition);
   }
 };

@@ -21,7 +21,6 @@ describe("useMotionControls - Debouncing & Smoothing", () => {
     type DeviceOrientationHandler = (event: DeviceOrientationEvent) => void;
     const handlers = new Set<DeviceOrientationHandler>();
 
-    // Use type assertion to match Window's addEventListener signature
     window.addEventListener = jest.fn(
       (type: string, listener: EventListenerOrEventListenerObject) => {
         if (type === "deviceorientation") {
@@ -41,7 +40,6 @@ describe("useMotionControls - Debouncing & Smoothing", () => {
     return handlers;
   };
 
-  // Rest of the test file remains the same...
   it("should debounce multiple quick motions", async () => {
     const handlers = createEventHandlerTracker();
     const onFlipUp = jest.fn();
@@ -54,57 +52,72 @@ describe("useMotionControls - Debouncing & Smoothing", () => {
       }),
     );
 
+    // Initialize motion permission and wait for setup
     await act(async () => {
       await result.current.requestMotionPermission();
       await Promise.resolve();
     });
 
-    await act(async () => {
-      handlers.forEach((handler) => handler(new MockDeviceOrientationEvent(0)));
-      await Promise.resolve();
-    });
-
+    // Initialize at neutral position with multiple readings to fill smoothing buffer
     await act(async () => {
       for (let i = 0; i < 5; i++) {
         handlers.forEach((handler) =>
           handler(new MockDeviceOrientationEvent(0)),
         );
         await Promise.resolve();
+        jest.advanceTimersByTime(100);
       }
-      jest.runAllTimers();
     });
 
+    // Verify we're in neutral position
+    expect(result.current.currentPosition).toBe("neutral");
+    expect(result.current.smoothedBeta).toBe(0);
+
+    // Move through intermediate positions to simulate realistic motion
     await act(async () => {
+      const positions = [30, 45, 60, 75, 90];
       mockNow = 1000;
-      for (let i = 0; i < 5; i++) {
+
+      for (const pos of positions) {
         handlers.forEach((handler) =>
-          handler(new MockDeviceOrientationEvent(90)),
+          handler(new MockDeviceOrientationEvent(pos)),
         );
         await Promise.resolve();
+        jest.advanceTimersByTime(100);
       }
-      jest.runAllTimers();
     });
 
+    // Verify action was triggered
+    expect(result.current.currentPosition).toBe("up");
+
+    // Return to neutral gradually
     await act(async () => {
-      mockNow = 1200;
-      for (let i = 0; i < 5; i++) {
+      mockNow = 2000;
+      const positions = [60, 30, 15, 0];
+
+      for (const pos of positions) {
         handlers.forEach((handler) =>
-          handler(new MockDeviceOrientationEvent(90)),
+          handler(new MockDeviceOrientationEvent(pos)),
         );
         await Promise.resolve();
+        jest.advanceTimersByTime(100);
       }
-      jest.runAllTimers();
     });
 
+    expect(result.current.currentPosition).toBe("neutral");
+
+    // Try second motion after debounce period
     await act(async () => {
-      mockNow = 1400;
-      for (let i = 0; i < 5; i++) {
+      mockNow = 3000;
+      const positions = [30, 45, 60, 75, 90];
+
+      for (const pos of positions) {
         handlers.forEach((handler) =>
-          handler(new MockDeviceOrientationEvent(90)),
+          handler(new MockDeviceOrientationEvent(pos)),
         );
         await Promise.resolve();
+        jest.advanceTimersByTime(100);
       }
-      jest.runAllTimers();
     });
 
     expect(onFlipUp).toHaveBeenCalledTimes(1);

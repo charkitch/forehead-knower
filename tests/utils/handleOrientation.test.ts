@@ -172,14 +172,31 @@ describe("handleOrientation", () => {
     expect(mockSetCurrentPosition).toHaveBeenCalledWith("up");
   });
 
-  test("skips processing when action is already in progress", () => {
+  test("prevents action callbacks while processing", () => {
     const params = createDefaultParams({
       event: createEvent(30),
+      currentPosition: "neutral",
+      isProcessingAction: { current: true },
+      hasReturnedToNeutral: { current: true },
+      lastActionTime: { current: Date.now() - 2000 },
+    });
+
+    handleOrientation(params);
+    // Position can still update
+    expect(mockSetCurrentPosition).toHaveBeenCalledWith("up");
+    // But action callback is prevented
+    expect(mockOnFlipUp).not.toHaveBeenCalled();
+  });
+
+  test("tracks position changes while processing", () => {
+    const params = createDefaultParams({
+      event: createEvent(5),
+      currentPosition: "up",
       isProcessingAction: { current: true },
     });
 
     handleOrientation(params);
-    expect(mockSetCurrentPosition).not.toHaveBeenCalled();
-    expect(mockOnFlipUp).not.toHaveBeenCalled();
+    expect(mockSetCurrentPosition).toHaveBeenCalledWith("neutral");
+    expect(hasReturnedToNeutral.current).toBe(true);
   });
 });
