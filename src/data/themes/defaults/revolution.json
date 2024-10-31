@@ -5,11 +5,11 @@
   "words": [
     {
       "word": "Napoleon Bonaparte",
-      "tabooWords": ["Emperor", "France", "Corsica", "Waterloo", "General"]
+      "spoilerWords": ["Emperor", "France", "Corsica", "Waterloo", "General"]
     },
     {
       "word": "Louis XVI",
-      "tabooWords": [
+      "spoilerWords": [
         "King",
         "France",
         "Execution",
@@ -19,11 +19,11 @@
     },
     {
       "word": "Bastille",
-      "tabooWords": ["Prison", "Storming", "July 14", "Revolution", "Paris"]
+      "spoilerWords": ["Prison", "Storming", "July 14", "Revolution", "Paris"]
     },
     {
       "word": "Robespierre",
-      "tabooWords": [
+      "spoilerWords": [
         "Reign of Terror",
         "Guillotine",
         "Committee of Public Safety",
@@ -33,7 +33,7 @@
     },
     {
       "word": "Marie Antoinette",
-      "tabooWords": [
+      "spoilerWords": [
         "Queen",
         "France",
         "Execution",
@@ -43,11 +43,11 @@
     },
     {
       "word": "Guillotine",
-      "tabooWords": ["Execution", "Blade", "Head", "Death", "Revolution"]
+      "spoilerWords": ["Execution", "Blade", "Head", "Death", "Revolution"]
     },
     {
       "word": "Reign of Terror",
-      "tabooWords": [
+      "spoilerWords": [
         "Robespierre",
         "Guillotine",
         "Executions",
@@ -57,47 +57,47 @@
     },
     {
       "word": "Waterloo",
-      "tabooWords": ["Napoleon", "Battle", "Defeat", "Final", "Wellington"]
+      "spoilerWords": ["Napoleon", "Battle", "Defeat", "Final", "Wellington"]
     },
     {
       "word": "Directory",
-      "tabooWords": ["Government", "France", "Revolution", "Corrupt", "1795"]
+      "spoilerWords": ["Government", "France", "Revolution", "Corrupt", "1795"]
     },
     {
       "word": "Consulate",
-      "tabooWords": ["Government", "Napoleon", "France", "1799", "Power"]
+      "spoilerWords": ["Government", "Napoleon", "France", "1799", "Power"]
     },
     {
       "word": "Napoleonic Code",
-      "tabooWords": ["Law", "France", "Civil", "Legal", "Reform"]
+      "spoilerWords": ["Law", "France", "Civil", "Legal", "Reform"]
     },
     {
       "word": "Trafalgar",
-      "tabooWords": ["Battle", "Navy", "Nelson", "Defeat", "Napoleon"]
+      "spoilerWords": ["Battle", "Navy", "Nelson", "Defeat", "Napoleon"]
     },
     {
       "word": "Austerlitz",
-      "tabooWords": ["Battle", "Victory", "Napoleon", "Russia", "1805"]
+      "spoilerWords": ["Battle", "Victory", "Napoleon", "Russia", "1805"]
     },
     {
       "word": "Congress of Vienna",
-      "tabooWords": ["Diplomacy", "Europe", "Napoleon", "Treaty", "1815"]
+      "spoilerWords": ["Diplomacy", "Europe", "Napoleon", "Treaty", "1815"]
     },
     {
       "word": "Coalition",
-      "tabooWords": ["Allies", "War", "Napoleon", "Europe", "France"]
+      "spoilerWords": ["Allies", "War", "Napoleon", "Europe", "France"]
     },
     {
       "word": "Coup of 18 Brumaire",
-      "tabooWords": ["Napoleon", "Power", "Overthrow", "Government", "1799"]
+      "spoilerWords": ["Napoleon", "Power", "Overthrow", "Government", "1799"]
     },
     {
       "word": "Battle of Leipzig",
-      "tabooWords": ["Napoleon", "Defeat", "Germany", "Coalition", "1813"]
+      "spoilerWords": ["Napoleon", "Defeat", "Germany", "Coalition", "1813"]
     },
     {
       "word": "Corsica",
-      "tabooWords": [
+      "spoilerWords": [
         "Napoleon",
         "Island",
         "Birthplace",
@@ -107,19 +107,19 @@
     },
     {
       "word": "French Revolution",
-      "tabooWords": ["1789", "Monarchy", "People", "Rights", "Liberty"]
+      "spoilerWords": ["1789", "Monarchy", "People", "Rights", "Liberty"]
     },
     {
       "word": "Elba",
-      "tabooWords": ["Napoleon", "Exile", "Island", "Return", "Escape"]
+      "spoilerWords": ["Napoleon", "Exile", "Island", "Return", "Escape"]
     },
     {
       "word": "Hundred Days",
-      "tabooWords": ["Napoleon", "Return", "Final", "Waterloo", "Exile"]
+      "spoilerWords": ["Napoleon", "Return", "Final", "Waterloo", "Exile"]
     },
     {
       "word": "Marat",
-      "tabooWords": [
+      "spoilerWords": [
         "Journalist",
         "Assassination",
         "Revolution",
@@ -129,7 +129,7 @@
     },
     {
       "word": "Danton",
-      "tabooWords": [
+      "spoilerWords": [
         "Revolutionary",
         "Robespierre",
         "Guillotine",
@@ -139,11 +139,17 @@
     },
     {
       "word": "Jacobins",
-      "tabooWords": ["Robespierre", "Radicals", "Revolution", "Club", "Terror"]
+      "spoilerWords": [
+        "Robespierre",
+        "Radicals",
+        "Revolution",
+        "Club",
+        "Terror"
+      ]
     },
     {
       "word": "Girondins",
-      "tabooWords": [
+      "spoilerWords": [
         "Moderates",
         "Revolution",
         "Opposition",
@@ -153,23 +159,23 @@
     },
     {
       "word": "Battle of Borodino",
-      "tabooWords": ["Napoleon", "Russia", "1812", "Invasion", "Bloodiest"]
+      "spoilerWords": ["Napoleon", "Russia", "1812", "Invasion", "Bloodiest"]
     },
     {
       "word": "Louis XVIII",
-      "tabooWords": ["King", "Restoration", "Monarch", "France", "Bourbon"]
+      "spoilerWords": ["King", "Restoration", "Monarch", "France", "Bourbon"]
     },
     {
       "word": "Josephine",
-      "tabooWords": ["Empress", "Napoleon", "Marriage", "Divorce", "Love"]
+      "spoilerWords": ["Empress", "Napoleon", "Marriage", "Divorce", "Love"]
     },
     {
       "word": "Tuileries",
-      "tabooWords": ["Palace", "Paris", "Revolution", "Royal", "Storming"]
+      "spoilerWords": ["Palace", "Paris", "Revolution", "Royal", "Storming"]
     },
     {
       "word": "Battle of the Pyramids",
-      "tabooWords": ["Napoleon", "Egypt", "Victory", "Cairo", "1798"]
+      "spoilerWords": ["Napoleon", "Egypt", "Victory", "Cairo", "1798"]
     }
   ]
 }

@@ -5,7 +5,7 @@
   "words": [
     {
       "word": "New York",
-      "tabooWords": [
+      "spoilerWords": [
         "Big Apple",
         "USA",
         "Statue of Liberty",
@@ -15,11 +15,17 @@
     },
     {
       "word": "London",
-      "tabooWords": ["UK", "Big Ben", "Thames", "England", "Buckingham Palace"]
+      "spoilerWords": [
+        "UK",
+        "Big Ben",
+        "Thames",
+        "England",
+        "Buckingham Palace"
+      ]
     },
     {
       "word": "Paris",
-      "tabooWords": [
+      "spoilerWords": [
         "France",
         "Eiffel Tower",
         "Louvre",
@@ -29,11 +35,11 @@
     },
     {
       "word": "Tokyo",
-      "tabooWords": ["Japan", "Mount Fuji", "Shibuya", "Sushi", "Skyscrapers"]
+      "spoilerWords": ["Japan", "Mount Fuji", "Shibuya", "Sushi", "Skyscrapers"]
     },
     {
       "word": "Sydney",
-      "tabooWords": [
+      "spoilerWords": [
         "Australia",
         "Opera House",
         "Harbour Bridge",
@@ -43,15 +49,15 @@
     },
     {
       "word": "Dubai",
-      "tabooWords": ["UAE", "Burj Khalifa", "Desert", "Skyscrapers", "Luxury"]
+      "spoilerWords": ["UAE", "Burj Khalifa", "Desert", "Skyscrapers", "Luxury"]
     },
     {
       "word": "Moscow",
-      "tabooWords": ["Russia", "Kremlin", "Red Square", "Cold", "Vodka"]
+      "spoilerWords": ["Russia", "Kremlin", "Red Square", "Cold", "Vodka"]
     },
     {
       "word": "Rio de Janeiro",
-      "tabooWords": [
+      "spoilerWords": [
         "Brazil",
         "Christ the Redeemer",
         "Carnival",
@@ -61,7 +67,7 @@
     },
     {
       "word": "Beijing",
-      "tabooWords": [
+      "spoilerWords": [
         "China",
         "Forbidden City",
         "Great Wall",
@@ -71,11 +77,11 @@
     },
     {
       "word": "Los Angeles",
-      "tabooWords": ["Hollywood", "USA", "Movies", "Beaches", "Stars"]
+      "spoilerWords": ["Hollywood", "USA", "Movies", "Beaches", "Stars"]
     },
     {
       "word": "Berlin",
-      "tabooWords": [
+      "spoilerWords": [
         "Germany",
         "Wall",
         "Brandenburg Gate",
@@ -85,15 +91,15 @@
     },
     {
       "word": "Rome",
-      "tabooWords": ["Italy", "Colosseum", "Vatican", "History", "Ancient"]
+      "spoilerWords": ["Italy", "Colosseum", "Vatican", "History", "Ancient"]
     },
     {
       "word": "Barcelona",
-      "tabooWords": ["Spain", "Gaudí", "Beach", "Football", "Sagrada Familia"]
+      "spoilerWords": ["Spain", "Gaudí", "Beach", "Football", "Sagrada Familia"]
     },
     {
       "word": "Mumbai",
-      "tabooWords": [
+      "spoilerWords": [
         "India",
         "Bollywood",
         "Crowded",
@@ -103,27 +109,39 @@
     },
     {
       "word": "Istanbul",
-      "tabooWords": ["Turkey", "Hagia Sophia", "Bosporus", "History", "Bazaars"]
+      "spoilerWords": [
+        "Turkey",
+        "Hagia Sophia",
+        "Bosporus",
+        "History",
+        "Bazaars"
+      ]
     },
     {
       "word": "Cairo",
-      "tabooWords": ["Egypt", "Pyramids", "Nile", "Desert", "Ancient"]
+      "spoilerWords": ["Egypt", "Pyramids", "Nile", "Desert", "Ancient"]
     },
     {
       "word": "Bangkok",
-      "tabooWords": ["Thailand", "Temples", "Street Food", "Buddha", "River"]
+      "spoilerWords": ["Thailand", "Temples", "Street Food", "Buddha", "River"]
     },
     {
       "word": "Seoul",
-      "tabooWords": ["South Korea", "Technology", "K-pop", "Gangnam", "Capital"]
+      "spoilerWords": [
+        "South Korea",
+        "Technology",
+        "K-pop",
+        "Gangnam",
+        "Capital"
+      ]
     },
     {
       "word": "Mexico City",
-      "tabooWords": ["Mexico", "Aztec", "Capital", "Food", "Tacos"]
+      "spoilerWords": ["Mexico", "Aztec", "Capital", "Food", "Tacos"]
     },
     {
       "word": "Cape Town",
-      "tabooWords": [
+      "spoilerWords": [
         "South Africa",
         "Table Mountain",
         "Nelson Mandela",
@@ -133,19 +151,25 @@
     },
     {
       "word": "Toronto",
-      "tabooWords": ["Canada", "CN Tower", "Hockey", "Diversity", "Lake"]
+      "spoilerWords": ["Canada", "CN Tower", "Hockey", "Diversity", "Lake"]
     },
     {
       "word": "Buenos Aires",
-      "tabooWords": ["Argentina", "Tango", "Steak", "Football", "Plaza de Mayo"]
+      "spoilerWords": [
+        "Argentina",
+        "Tango",
+        "Steak",
+        "Football",
+        "Plaza de Mayo"
+      ]
     },
     {
       "word": "Lisbon",
-      "tabooWords": ["Portugal", "Hills", "Trams", "Ocean", "Tiles"]
+      "spoilerWords": ["Portugal", "Hills", "Trams", "Ocean", "Tiles"]
     },
     {
       "word": "Athens",
-      "tabooWords": [
+      "spoilerWords": [
         "Greece",
         "Acropolis",
         "Parthenon",
@@ -155,15 +179,21 @@
     },
     {
       "word": "Amsterdam",
-      "tabooWords": ["Netherlands", "Canals", "Bicycles", "Windmills", "Tulips"]
+      "spoilerWords": [
+        "Netherlands",
+        "Canals",
+        "Bicycles",
+        "Windmills",
+        "Tulips"
+      ]
     },
     {
       "word": "Vienna",
-      "tabooWords": ["Austria", "Music", "Opera", "Palaces", "Coffee"]
+      "spoilerWords": ["Austria", "Music", "Opera", "Palaces", "Coffee"]
     },
     {
       "word": "Stockholm",
-      "tabooWords": [
+      "spoilerWords": [
         "Sweden",
         "Islands",
         "Nobel Prize",
@@ -173,15 +203,15 @@
     },
     {
       "word": "Singapore",
-      "tabooWords": ["Asia", "City-State", "Clean", "Technology", "Business"]
+      "spoilerWords": ["Asia", "City-State", "Clean", "Technology", "Business"]
     },
     {
       "word": "Havana",
-      "tabooWords": ["Cuba", "Cigars", "Vintage Cars", "Rum", "Salsa"]
+      "spoilerWords": ["Cuba", "Cigars", "Vintage Cars", "Rum", "Salsa"]
     },
     {
       "word": "Dubai",
-      "tabooWords": ["UAE", "Burj Khalifa", "Luxury", "Desert", "Skyscrapers"]
+      "spoilerWords": ["UAE", "Burj Khalifa", "Luxury", "Desert", "Skyscrapers"]
     }
   ]
 }

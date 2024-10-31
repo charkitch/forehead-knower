@@ -5,120 +5,123 @@
   "words": [
     {
       "word": "Frodo",
-      "tabooWords": ["Ring", "Hobbit", "Shire", "Mount Doom", "Quest"]
+      "spoilerWords": ["Ring", "Hobbit", "Shire", "Mount Doom", "Quest"]
     },
     {
       "word": "Gandalf",
-      "tabooWords": ["Wizard", "White", "Staff", "Grey", "Magic"]
+      "spoilerWords": ["Wizard", "White", "Staff", "Grey", "Magic"]
     },
     {
       "word": "Aragorn",
-      "tabooWords": ["King", "Ranger", "Sword", "Strider", "Gondor"]
+      "spoilerWords": ["King", "Ranger", "Sword", "Strider", "Gondor"]
     },
     {
       "word": "Legolas",
-      "tabooWords": ["Elf", "Bow", "Arrow", "Blonde", "Friend"]
+      "spoilerWords": ["Elf", "Bow", "Arrow", "Blonde", "Friend"]
     },
     {
       "word": "Gimli",
-      "tabooWords": ["Dwarf", "Axe", "Beard", "Warrior", "Friend"]
+      "spoilerWords": ["Dwarf", "Axe", "Beard", "Warrior", "Friend"]
     },
-    { "word": "Sauron", "tabooWords": ["Ring", "Dark", "Lord", "Eye", "Evil"] },
+    {
+      "word": "Sauron",
+      "spoilerWords": ["Ring", "Dark", "Lord", "Eye", "Evil"]
+    },
     {
       "word": "Gollum",
-      "tabooWords": ["Ring", "Precious", "Creature", "Frodo", "Bilbo"]
+      "spoilerWords": ["Ring", "Precious", "Creature", "Frodo", "Bilbo"]
     },
     {
       "word": "Bilbo",
-      "tabooWords": ["Hobbit", "Shire", "Frodo", "Adventure", "Ring"]
+      "spoilerWords": ["Hobbit", "Shire", "Frodo", "Adventure", "Ring"]
     },
     {
       "word": "Sam",
-      "tabooWords": ["Frodo", "Hobbit", "Friend", "Brave", "Gardener"]
+      "spoilerWords": ["Frodo", "Hobbit", "Friend", "Brave", "Gardener"]
     },
     {
       "word": "Mordor",
-      "tabooWords": ["Sauron", "Dark", "Mount Doom", "Land", "Evil"]
+      "spoilerWords": ["Sauron", "Dark", "Mount Doom", "Land", "Evil"]
     },
     {
       "word": "The Shire",
-      "tabooWords": ["Hobbits", "Home", "Green", "Peaceful", "Land"]
+      "spoilerWords": ["Hobbits", "Home", "Green", "Peaceful", "Land"]
     },
     {
       "word": "Ring",
-      "tabooWords": ["Sauron", "Power", "Frodo", "One", "Evil"]
+      "spoilerWords": ["Sauron", "Power", "Frodo", "One", "Evil"]
     },
     {
       "word": "Saruman",
-      "tabooWords": ["Wizard", "White", "Tower", "Evil", "Isengard"]
+      "spoilerWords": ["Wizard", "White", "Tower", "Evil", "Isengard"]
     },
     {
       "word": "Galadriel",
-      "tabooWords": ["Elf", "Lady", "Magic", "Ring", "Forest"]
+      "spoilerWords": ["Elf", "Lady", "Magic", "Ring", "Forest"]
     },
     {
       "word": "Elrond",
-      "tabooWords": ["Elf", "Rivendell", "Council", "Wise", "Ring"]
+      "spoilerWords": ["Elf", "Rivendell", "Council", "Wise", "Ring"]
     },
     {
       "word": "Rohan",
-      "tabooWords": ["Horses", "Land", "Kingdom", "Théoden", "Eorl"]
+      "spoilerWords": ["Horses", "Land", "Kingdom", "Théoden", "Eorl"]
     },
     {
       "word": "Gondor",
-      "tabooWords": ["Kingdom", "Aragorn", "Minas Tirith", "Men", "War"]
+      "spoilerWords": ["Kingdom", "Aragorn", "Minas Tirith", "Men", "War"]
     },
     {
       "word": "Mount Doom",
-      "tabooWords": ["Ring", "Fire", "Sauron", "Frodo", "Destroy"]
+      "spoilerWords": ["Ring", "Fire", "Sauron", "Frodo", "Destroy"]
     },
     {
       "word": "Nazgûl",
-      "tabooWords": ["Ringwraith", "Sauron", "Dark", "Riders", "Evil"]
+      "spoilerWords": ["Ringwraith", "Sauron", "Dark", "Riders", "Evil"]
     },
     {
       "word": "Treebeard",
-      "tabooWords": ["Ent", "Forest", "Talking", "Tall", "Tree"]
+      "spoilerWords": ["Ent", "Forest", "Talking", "Tall", "Tree"]
     },
     {
       "word": "Boromir",
-      "tabooWords": ["Gondor", "Ring", "Warrior", "Aragorn", "Son"]
+      "spoilerWords": ["Gondor", "Ring", "Warrior", "Aragorn", "Son"]
     },
     {
       "word": "Rivendell",
-      "tabooWords": ["Elves", "Elrond", "Safe", "Home", "Valley"]
+      "spoilerWords": ["Elves", "Elrond", "Safe", "Home", "Valley"]
     },
     {
       "word": "Isengard",
-      "tabooWords": ["Saruman", "Tower", "Destruction", "War", "Army"]
+      "spoilerWords": ["Saruman", "Tower", "Destruction", "War", "Army"]
     },
     {
       "word": "Orcs",
-      "tabooWords": ["Dark", "Creatures", "Sauron", "Army", "Ugly"]
+      "spoilerWords": ["Dark", "Creatures", "Sauron", "Army", "Ugly"]
     },
     {
       "word": "The Two Towers",
-      "tabooWords": ["Isengard", "Mordor", "Saruman", "Sauron", "War"]
+      "spoilerWords": ["Isengard", "Mordor", "Saruman", "Sauron", "War"]
     },
     {
       "word": "Eowyn",
-      "tabooWords": ["Rohan", "Shieldmaiden", "Woman", "Warrior", "Théoden"]
+      "spoilerWords": ["Rohan", "Shieldmaiden", "Woman", "Warrior", "Théoden"]
     },
     {
       "word": "Théoden",
-      "tabooWords": ["Rohan", "King", "Horse", "Battle", "Helm's Deep"]
+      "spoilerWords": ["Rohan", "King", "Horse", "Battle", "Helm's Deep"]
     },
     {
       "word": "Shelob",
-      "tabooWords": ["Spider", "Cave", "Web", "Frodo", "Trap"]
+      "spoilerWords": ["Spider", "Cave", "Web", "Frodo", "Trap"]
     },
     {
       "word": "Pippin",
-      "tabooWords": ["Hobbit", "Fool", "Friend", "Shire", "Adventure"]
+      "spoilerWords": ["Hobbit", "Fool", "Friend", "Shire", "Adventure"]
     },
     {
       "word": "Merry",
-      "tabooWords": ["Hobbit", "Friend", "Pippin", "Brave", "Shire"]
+      "spoilerWords": ["Hobbit", "Friend", "Pippin", "Brave", "Shire"]
     }
   ]
 }

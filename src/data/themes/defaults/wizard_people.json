@@ -5,19 +5,19 @@
   "words": [
     {
       "word": "Harry Potter",
-      "tabooWords": ["Wizard", "Scar", "Gryffindor", "Chosen One", "Boy"]
+      "spoilerWords": ["Wizard", "Scar", "Gryffindor", "Chosen One", "Boy"]
     },
     {
       "word": "Hermione Granger",
-      "tabooWords": ["Smart", "Gryffindor", "Muggle-born", "Books", "Witch"]
+      "spoilerWords": ["Smart", "Gryffindor", "Muggle-born", "Books", "Witch"]
     },
     {
       "word": "Ron Weasley",
-      "tabooWords": ["Ginger", "Family", "Gryffindor", "Harry", "Best Friend"]
+      "spoilerWords": ["Ginger", "Family", "Gryffindor", "Harry", "Best Friend"]
     },
     {
       "word": "Voldemort",
-      "tabooWords": [
+      "spoilerWords": [
         "Tom Riddle",
         "Dark Lord",
         "Death Eaters",
@@ -27,11 +27,11 @@
     },
     {
       "word": "Hogwarts",
-      "tabooWords": ["School", "Magic", "Castle", "Houses", "Wizards"]
+      "spoilerWords": ["School", "Magic", "Castle", "Houses", "Wizards"]
     },
     {
       "word": "Dumbledore",
-      "tabooWords": [
+      "spoilerWords": [
         "Headmaster",
         "Phoenix",
         "Beard",
@@ -41,79 +41,85 @@
     },
     {
       "word": "Snape",
-      "tabooWords": ["Potions", "Slytherin", "Professor", "Lily", "Death Eater"]
+      "spoilerWords": [
+        "Potions",
+        "Slytherin",
+        "Professor",
+        "Lily",
+        "Death Eater"
+      ]
     },
     {
       "word": "Quidditch",
-      "tabooWords": ["Game", "Broomstick", "Snitch", "Bludger", "Goals"]
+      "spoilerWords": ["Game", "Broomstick", "Snitch", "Bludger", "Goals"]
     },
     {
       "word": "Gryffindor",
-      "tabooWords": ["Lion", "House", "Bravery", "Red", "Courage"]
+      "spoilerWords": ["Lion", "House", "Bravery", "Red", "Courage"]
     },
     {
       "word": "Slytherin",
-      "tabooWords": ["Snake", "House", "Ambition", "Green", "Cunning"]
+      "spoilerWords": ["Snake", "House", "Ambition", "Green", "Cunning"]
     },
     {
       "word": "Hufflepuff",
-      "tabooWords": ["Badger", "House", "Loyalty", "Yellow", "Patience"]
+      "spoilerWords": ["Badger", "House", "Loyalty", "Yellow", "Patience"]
     },
     {
       "word": "Ravenclaw",
-      "tabooWords": ["Eagle", "House", "Wisdom", "Blue", "Intelligence"]
+      "spoilerWords": ["Eagle", "House", "Wisdom", "Blue", "Intelligence"]
     },
     {
       "word": "Draco Malfoy",
-      "tabooWords": ["Slytherin", "Pure-blood", "Bully", "Blond", "Harry"]
+      "spoilerWords": ["Slytherin", "Pure-blood", "Bully", "Blond", "Harry"]
     },
     {
       "word": "Horcrux",
-      "tabooWords": ["Soul", "Voldemort", "Object", "Immortality", "Evil"]
+      "spoilerWords": ["Soul", "Voldemort", "Object", "Immortality", "Evil"]
     },
     {
       "word": "Butterbeer",
-      "tabooWords": ["Drink", "Hogsmeade", "Pub", "Sweet", "Magic"]
+      "spoilerWords": ["Drink", "Hogsmeade", "Pub", "Sweet", "Magic"]
     },
     {
       "word": "Hagrid",
-      "tabooWords": ["Half-giant", "Beasts", "Hut", "Gryffindor", "Harry"]
+      "spoilerWords": ["Half-giant", "Beasts", "Hut", "Gryffindor", "Harry"]
     },
     {
       "word": "Patronus",
-      "tabooWords": ["Spell", "Animal", "Dementors", "Charm", "Protector"]
+      "spoilerWords": ["Spell", "Animal", "Dementors", "Charm", "Protector"]
     },
     {
       "word": "Dobby",
-      "tabooWords": ["Elf", "Sock", "Freedom", "Servant", "Magic"]
+      "spoilerWords": ["Elf", "Sock", "Freedom", "Servant", "Magic"]
     },
     {
       "word": "Death Eaters",
-      "tabooWords": ["Voldemort", "Dark", "Followers", "Magic", "Mark"]
+      "spoilerWords": ["Voldemort", "Dark", "Followers", "Magic", "Mark"]
     },
     {
       "word": "Azkaban",
-      "tabooWords": ["Prison", "Dementors", "Dark", "Escape", "Wizard"]
+      "spoilerWords": ["Prison", "Dementors", "Dark", "Escape", "Wizard"]
     },
     {
       "word": "Goblet of Fire",
-      "tabooWords": ["Tournament", "Cup", "Champions", "Triwizard", "Magic"]
+      "spoilerWords": ["Tournament", "Cup", "Champions", "Triwizard", "Magic"]
     },
     {
       "word": "Fawkes",
-      "tabooWords": ["Phoenix", "Dumbledore", "Fire", "Rebirth", "Bird"]
+      "spoilerWords": ["Phoenix", "Dumbledore", "Fire", "Rebirth", "Bird"]
     },
     {
       "word": "Wand",
-      "tabooWords": ["Magic", "Wood", "Spells", "Core", "Casting"]
+      "spoilerWords": ["Magic", "Wood", "Spells", "Core", "Casting"]
     },
     {
       "word": "Polyjuice Potion",
-      "tabooWords": ["Transformation", "Drink", "Disguise", "Potion", "Body"]
+      "spoilerWords": ["Transformation", "Drink", "Disguise", "Potion", "Body"]
     },
     {
       "word": "Invisibility Cloak",
-      "tabooWords": [
+      "spoilerWords": [
         "Harry",
         "Gift",
         "Invisible",
@@ -123,23 +129,23 @@
     },
     {
       "word": "Hogsmeade",
-      "tabooWords": ["Village", "Wizards", "Shops", "School", "Visit"]
+      "spoilerWords": ["Village", "Wizards", "Shops", "School", "Visit"]
     },
     {
       "word": "Gringotts",
-      "tabooWords": ["Bank", "Gold", "Vault", "Goblins", "Money"]
+      "spoilerWords": ["Bank", "Gold", "Vault", "Goblins", "Money"]
     },
     {
       "word": "Diagon Alley",
-      "tabooWords": ["Shops", "London", "Wizards", "Magic", "Supplies"]
+      "spoilerWords": ["Shops", "London", "Wizards", "Magic", "Supplies"]
     },
     {
       "word": "Basilisk",
-      "tabooWords": ["Snake", "Chamber", "Monster", "Petrify", "Slytherin"]
+      "spoilerWords": ["Snake", "Chamber", "Monster", "Petrify", "Slytherin"]
     },
     {
       "word": "Thestral",
-      "tabooWords": ["Winged", "Creature", "Death", "Invisible", "Horse"]
+      "spoilerWords": ["Winged", "Creature", "Death", "Invisible", "Horse"]
     }
   ]
 }

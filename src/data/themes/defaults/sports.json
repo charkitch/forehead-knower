@@ -5,120 +5,123 @@
   "words": [
     {
       "word": "Basketball",
-      "tabooWords": ["Hoop", "Court", "Dribble", "Dunk", "NBA"]
+      "spoilerWords": ["Hoop", "Court", "Dribble", "Dunk", "NBA"]
     },
     {
       "word": "Soccer",
-      "tabooWords": ["Goal", "Kick", "FIFA", "Ball", "World Cup"]
+      "spoilerWords": ["Goal", "Kick", "FIFA", "Ball", "World Cup"]
     },
     {
       "word": "Tennis",
-      "tabooWords": ["Racket", "Serve", "Court", "Net", "Ball"]
+      "spoilerWords": ["Racket", "Serve", "Court", "Net", "Ball"]
     },
     {
       "word": "Baseball",
-      "tabooWords": ["Bat", "Home Run", "Pitcher", "Ball", "MLB"]
+      "spoilerWords": ["Bat", "Home Run", "Pitcher", "Ball", "MLB"]
     },
-    { "word": "Golf", "tabooWords": ["Club", "Green", "Hole", "Tee", "Ball"] },
+    {
+      "word": "Golf",
+      "spoilerWords": ["Club", "Green", "Hole", "Tee", "Ball"]
+    },
     {
       "word": "Cricket",
-      "tabooWords": ["Bat", "Wicket", "Bowler", "Ball", "Match"]
+      "spoilerWords": ["Bat", "Wicket", "Bowler", "Ball", "Match"]
     },
     {
       "word": "Rugby",
-      "tabooWords": ["Scrum", "Tackle", "Ball", "Try", "Field"]
+      "spoilerWords": ["Scrum", "Tackle", "Ball", "Try", "Field"]
     },
     {
       "word": "American Football",
-      "tabooWords": ["Touchdown", "Quarterback", "NFL", "Ball", "Helmet"]
+      "spoilerWords": ["Touchdown", "Quarterback", "NFL", "Ball", "Helmet"]
     },
     {
       "word": "Hockey",
-      "tabooWords": ["Puck", "Ice", "Stick", "Goal", "Skates"]
+      "spoilerWords": ["Puck", "Ice", "Stick", "Goal", "Skates"]
     },
     {
       "word": "Boxing",
-      "tabooWords": ["Gloves", "Ring", "Punch", "Knockout", "Fight"]
+      "spoilerWords": ["Gloves", "Ring", "Punch", "Knockout", "Fight"]
     },
     {
       "word": "Swimming",
-      "tabooWords": ["Pool", "Water", "Lanes", "Goggles", "Stroke"]
+      "spoilerWords": ["Pool", "Water", "Lanes", "Goggles", "Stroke"]
     },
     {
       "word": "Cycling",
-      "tabooWords": ["Bike", "Race", "Tour", "Pedal", "Helmet"]
+      "spoilerWords": ["Bike", "Race", "Tour", "Pedal", "Helmet"]
     },
     {
       "word": "Running",
-      "tabooWords": ["Marathon", "Sprint", "Track", "Race", "Shoes"]
+      "spoilerWords": ["Marathon", "Sprint", "Track", "Race", "Shoes"]
     },
     {
       "word": "Skiing",
-      "tabooWords": ["Snow", "Poles", "Slopes", "Goggles", "Skis"]
+      "spoilerWords": ["Snow", "Poles", "Slopes", "Goggles", "Skis"]
     },
     {
       "word": "Surfing",
-      "tabooWords": ["Waves", "Board", "Beach", "Ocean", "Ride"]
+      "spoilerWords": ["Waves", "Board", "Beach", "Ocean", "Ride"]
     },
     {
       "word": "Skateboarding",
-      "tabooWords": ["Board", "Tricks", "Park", "Skate", "Ramp"]
+      "spoilerWords": ["Board", "Tricks", "Park", "Skate", "Ramp"]
     },
     {
       "word": "Volleyball",
-      "tabooWords": ["Net", "Spike", "Ball", "Beach", "Court"]
+      "spoilerWords": ["Net", "Spike", "Ball", "Beach", "Court"]
     },
     {
       "word": "Badminton",
-      "tabooWords": ["Shuttlecock", "Racket", "Net", "Court", "Serve"]
+      "spoilerWords": ["Shuttlecock", "Racket", "Net", "Court", "Serve"]
     },
     {
       "word": "Wrestling",
-      "tabooWords": ["Ring", "Grapple", "Fight", "Pin", "Match"]
+      "spoilerWords": ["Ring", "Grapple", "Fight", "Pin", "Match"]
     },
     {
       "word": "Karate",
-      "tabooWords": ["Kick", "Punch", "Belt", "Martial Arts", "Fight"]
+      "spoilerWords": ["Kick", "Punch", "Belt", "Martial Arts", "Fight"]
     },
     {
       "word": "Judo",
-      "tabooWords": ["Throw", "Belt", "Grapple", "Mat", "Hold"]
+      "spoilerWords": ["Throw", "Belt", "Grapple", "Mat", "Hold"]
     },
     {
       "word": "Table Tennis",
-      "tabooWords": ["Paddle", "Ball", "Net", "Serve", "Rally"]
+      "spoilerWords": ["Paddle", "Ball", "Net", "Serve", "Rally"]
     },
     {
       "word": "Bowling",
-      "tabooWords": ["Pins", "Ball", "Strike", "Alley", "Lane"]
+      "spoilerWords": ["Pins", "Ball", "Strike", "Alley", "Lane"]
     },
     {
       "word": "Snooker",
-      "tabooWords": ["Cue", "Ball", "Table", "Pockets", "Break"]
+      "spoilerWords": ["Cue", "Ball", "Table", "Pockets", "Break"]
     },
     {
       "word": "Fencing",
-      "tabooWords": ["Sword", "Foil", "Lunge", "Point", "Duel"]
+      "spoilerWords": ["Sword", "Foil", "Lunge", "Point", "Duel"]
     },
     {
       "word": "Gymnastics",
-      "tabooWords": ["Flip", "Bar", "Balance", "Beam", "Routine"]
+      "spoilerWords": ["Flip", "Bar", "Balance", "Beam", "Routine"]
     },
     {
       "word": "Archery",
-      "tabooWords": ["Bow", "Arrow", "Target", "Aim", "Quiver"]
+      "spoilerWords": ["Bow", "Arrow", "Target", "Aim", "Quiver"]
     },
     {
       "word": "Rowing",
-      "tabooWords": ["Oars", "Boat", "Water", "Stroke", "Crew"]
+      "spoilerWords": ["Oars", "Boat", "Water", "Stroke", "Crew"]
     },
     {
       "word": "Darts",
-      "tabooWords": ["Board", "Throw", "Bullseye", "Score", "Arrows"]
+      "spoilerWords": ["Board", "Throw", "Bullseye", "Score", "Arrows"]
     },
     {
       "word": "Figure Skating",
-      "tabooWords": ["Ice", "Dance", "Spin", "Jump", "Skates"]
+      "spoilerWords": ["Ice", "Dance", "Spin", "Jump", "Skates"]
     }
   ]
 }

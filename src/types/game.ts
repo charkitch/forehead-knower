@@ -1,6 +1,6 @@
 export type Word = {
   word: string;
-  tabooWords: string[];
+  spoilerWords: string[];
 };
 
 export type Theme = {

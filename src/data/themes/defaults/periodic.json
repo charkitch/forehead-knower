@@ -5,123 +5,123 @@
   "words": [
     {
       "word": "Hydrogen",
-      "tabooWords": ["H", "First", "Gas", "Atomic Number 1", "Light"]
+      "spoilerWords": ["H", "First", "Gas", "Atomic Number 1", "Light"]
     },
     {
       "word": "Helium",
-      "tabooWords": ["He", "Balloon", "Noble Gas", "Inert", "Light"]
+      "spoilerWords": ["He", "Balloon", "Noble Gas", "Inert", "Light"]
     },
     {
       "word": "Lithium",
-      "tabooWords": ["Li", "Battery", "Metal", "Soft", "Alkali"]
+      "spoilerWords": ["Li", "Battery", "Metal", "Soft", "Alkali"]
     },
     {
       "word": "Carbon",
-      "tabooWords": ["C", "Life", "Graphite", "Diamond", "Organic"]
+      "spoilerWords": ["C", "Life", "Graphite", "Diamond", "Organic"]
     },
     {
       "word": "Nitrogen",
-      "tabooWords": ["N", "Air", "Fertilizer", "Cold", "Gas"]
+      "spoilerWords": ["N", "Air", "Fertilizer", "Cold", "Gas"]
     },
     {
       "word": "Oxygen",
-      "tabooWords": ["O", "Breathe", "Air", "Water", "Oxidize"]
+      "spoilerWords": ["O", "Breathe", "Air", "Water", "Oxidize"]
     },
     {
       "word": "Fluorine",
-      "tabooWords": ["F", "Teeth", "Gas", "Halogen", "Toxic"]
+      "spoilerWords": ["F", "Teeth", "Gas", "Halogen", "Toxic"]
     },
     {
       "word": "Neon",
-      "tabooWords": ["Ne", "Light", "Sign", "Noble Gas", "Inert"]
+      "spoilerWords": ["Ne", "Light", "Sign", "Noble Gas", "Inert"]
     },
     {
       "word": "Sodium",
-      "tabooWords": ["Na", "Salt", "Metal", "Soft", "Alkali"]
+      "spoilerWords": ["Na", "Salt", "Metal", "Soft", "Alkali"]
     },
     {
       "word": "Magnesium",
-      "tabooWords": ["Mg", "Fire", "Burn", "Metal", "Alkaline Earth"]
+      "spoilerWords": ["Mg", "Fire", "Burn", "Metal", "Alkaline Earth"]
     },
     {
       "word": "Aluminum",
-      "tabooWords": ["Al", "Foil", "Metal", "Light", "Can"]
+      "spoilerWords": ["Al", "Foil", "Metal", "Light", "Can"]
     },
     {
       "word": "Silicon",
-      "tabooWords": ["Si", "Chip", "Semiconductor", "Computer", "Sand"]
+      "spoilerWords": ["Si", "Chip", "Semiconductor", "Computer", "Sand"]
     },
     {
       "word": "Phosphorus",
-      "tabooWords": ["P", "Matches", "Fertilizer", "Red", "Reactive"]
+      "spoilerWords": ["P", "Matches", "Fertilizer", "Red", "Reactive"]
     },
     {
       "word": "Sulfur",
-      "tabooWords": ["S", "Yellow", "Smell", "Volcano", "Acid"]
+      "spoilerWords": ["S", "Yellow", "Smell", "Volcano", "Acid"]
     },
     {
       "word": "Chlorine",
-      "tabooWords": ["Cl", "Pool", "Bleach", "Green", "Halogen"]
+      "spoilerWords": ["Cl", "Pool", "Bleach", "Green", "Halogen"]
     },
     {
       "word": "Argon",
-      "tabooWords": ["Ar", "Noble Gas", "Inert", "Lamp", "Neon"]
+      "spoilerWords": ["Ar", "Noble Gas", "Inert", "Lamp", "Neon"]
     },
     {
       "word": "Potassium",
-      "tabooWords": ["K", "Banana", "Electrolyte", "Metal", "Soft"]
+      "spoilerWords": ["K", "Banana", "Electrolyte", "Metal", "Soft"]
     },
     {
       "word": "Calcium",
-      "tabooWords": ["Ca", "Bone", "Milk", "Mineral", "Alkaline Earth"]
+      "spoilerWords": ["Ca", "Bone", "Milk", "Mineral", "Alkaline Earth"]
     },
     {
       "word": "Iron",
-      "tabooWords": ["Fe", "Rust", "Metal", "Steel", "Magnetic"]
+      "spoilerWords": ["Fe", "Rust", "Metal", "Steel", "Magnetic"]
     },
     {
       "word": "Copper",
-      "tabooWords": ["Cu", "Wire", "Metal", "Penny", "Conductor"]
+      "spoilerWords": ["Cu", "Wire", "Metal", "Penny", "Conductor"]
     },
     {
       "word": "Zinc",
-      "tabooWords": ["Zn", "Metal", "Galvanize", "Rust", "Mineral"]
+      "spoilerWords": ["Zn", "Metal", "Galvanize", "Rust", "Mineral"]
     },
     {
       "word": "Silver",
-      "tabooWords": ["Ag", "Jewelry", "Precious", "Metal", "Shiny"]
+      "spoilerWords": ["Ag", "Jewelry", "Precious", "Metal", "Shiny"]
     },
     {
       "word": "Gold",
-      "tabooWords": ["Au", "Shiny", "Yellow", "Precious", "Metal"]
+      "spoilerWords": ["Au", "Shiny", "Yellow", "Precious", "Metal"]
     },
     {
       "word": "Mercury",
-      "tabooWords": ["Hg", "Liquid", "Metal", "Thermometer", "Toxic"]
+      "spoilerWords": ["Hg", "Liquid", "Metal", "Thermometer", "Toxic"]
     },
     {
       "word": "Lead",
-      "tabooWords": ["Pb", "Heavy", "Toxic", "Metal", "Pipes"]
+      "spoilerWords": ["Pb", "Heavy", "Toxic", "Metal", "Pipes"]
     },
     {
       "word": "Uranium",
-      "tabooWords": ["U", "Radioactive", "Nuclear", "Fission", "Heavy"]
+      "spoilerWords": ["U", "Radioactive", "Nuclear", "Fission", "Heavy"]
     },
     {
       "word": "Platinum",
-      "tabooWords": ["Pt", "Precious", "Metal", "Jewelry", "Catalyst"]
+      "spoilerWords": ["Pt", "Precious", "Metal", "Jewelry", "Catalyst"]
     },
     {
       "word": "Radon",
-      "tabooWords": ["Rn", "Gas", "Radioactive", "Noble", "Inert"]
+      "spoilerWords": ["Rn", "Gas", "Radioactive", "Noble", "Inert"]
     },
     {
       "word": "Iodine",
-      "tabooWords": ["I", "Purple", "Antiseptic", "Thyroid", "Halogen"]
+      "spoilerWords": ["I", "Purple", "Antiseptic", "Thyroid", "Halogen"]
     },
     {
       "word": "Cobalt",
-      "tabooWords": ["Co", "Blue", "Metal", "Magnetic", "Alloy"]
+      "spoilerWords": ["Co", "Blue", "Metal", "Magnetic", "Alloy"]
     }
   ]
 }
