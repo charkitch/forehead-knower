@@ -10,7 +10,6 @@ interface MotionControlsConfig {
 
 type Position = "up" | "neutral" | "down";
 
-// Helper function to safely check for iOS permission API
 const checkIOSPermissionAPI = () => {
   try {
     // @ts-expect-error - We intentionally ignore the type here and handle it at runtime
@@ -31,18 +30,52 @@ export const useMotionControls = ({
   const [calibrationBeta, setCalibrationBeta] = useState(0);
   const [currentPosition, setCurrentPosition] = useState<Position>("neutral");
   const [lastBeta, setLastBeta] = useState(0);
+  const [smoothedBeta, setSmoothedBeta] = useState(0);
   const isProcessingAction = useRef(false);
   const lastActionTime = useRef(0);
+  const betaValues = useRef<number[]>([]);
+  const isCalibrated = useRef(false);
 
-  // Check if device orientation is available
+  const smoothBeta = (newBeta: number): number => {
+    const values = betaValues.current;
+    values.push(newBeta);
+
+    if (values.length > 5) {
+      values.shift();
+    }
+
+    const average = values.reduce((sum, val) => sum + val, 0) / values.length;
+
+    setSmoothedBeta(average);
+    return average;
+  };
+
   useEffect(() => {
     if (typeof window === "undefined") return;
-
     const requiresPermission = checkIOSPermissionAPI();
     if (!requiresPermission) {
       setIsMotionEnabled(true);
     }
   }, []);
+
+  const calibrateOrientation = () => {
+    // Reset state
+    betaValues.current = [];
+    isProcessingAction.current = false;
+    isCalibrated.current = false;
+    lastActionTime.current = 0;
+
+    const handler = (event: DeviceOrientationEvent) => {
+      const beta = event.beta || 0;
+      setCalibrationBeta(beta);
+      smoothBeta(beta); // Initialize smoothing buffer
+      setCurrentPosition("neutral");
+      isCalibrated.current = true;
+      window.removeEventListener("deviceorientation", handler);
+    };
+
+    window.addEventListener("deviceorientation", handler);
+  };
 
   const requestMotionPermission = async () => {
     try {
@@ -54,7 +87,6 @@ export const useMotionControls = ({
           calibrateOrientation();
         }
       } else {
-        // For non-iOS devices, just enable
         setIsMotionEnabled(true);
         calibrateOrientation();
       }
@@ -63,46 +95,36 @@ export const useMotionControls = ({
     }
   };
 
-  const calibrateOrientation = () => {
-    const handler = (event: DeviceOrientationEvent) => {
-      setCalibrationBeta(event.beta || 0);
-      setCurrentPosition("neutral");
-      isProcessingAction.current = false;
-      window.removeEventListener("deviceorientation", handler);
-    };
-    window.addEventListener("deviceorientation", handler);
-  };
-
   useEffect(() => {
     if (!isMotionEnabled || !enabled) return;
 
     const handleOrientation = (event: DeviceOrientationEvent) => {
       const beta = event.beta || 0;
-      const betaDiff = beta - calibrationBeta;
-
       setLastBeta(beta);
 
-      // Don't process if we're in the middle of an action
+      if (!isCalibrated.current) {
+        return;
+      }
+
+      const smoothedValue = smoothBeta(beta);
+      const betaDiff = smoothedValue - calibrationBeta;
+
       if (isProcessingAction.current) {
         return;
       }
 
-      // Determine new position
-      let newPosition: Position = "neutral";
+      let newPosition: Position = currentPosition;
       if (Math.abs(betaDiff) > actionThreshold) {
         newPosition = betaDiff > 0 ? "up" : "down";
       } else if (Math.abs(betaDiff) <= neutralThreshold) {
         newPosition = "neutral";
       }
 
-      // Only update if position changed
       if (newPosition !== currentPosition) {
         setCurrentPosition(newPosition);
 
-        // If we moved to up or down, trigger action
         if (newPosition === "up" || newPosition === "down") {
           const now = Date.now();
-          // Ensure at least 500ms between actions
           if (now - lastActionTime.current > 500) {
             isProcessingAction.current = true;
             lastActionTime.current = now;
@@ -113,7 +135,6 @@ export const useMotionControls = ({
               onFlipDown?.();
             }
 
-            // Reset after 2 seconds
             setTimeout(() => {
               isProcessingAction.current = false;
             }, 2000);
@@ -142,5 +163,6 @@ export const useMotionControls = ({
     calibrateOrientation,
     currentPosition,
     lastBeta,
+    smoothedBeta,
   };
 };
