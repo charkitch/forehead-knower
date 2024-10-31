@@ -18,23 +18,25 @@ describe("useMotionControls - Motion Detection", () => {
   });
 
   const createEventHandlerTracker = () => {
-    const handlers = new Set<(event: Event) => void>();
+    type DeviceOrientationHandler = (event: DeviceOrientationEvent) => void;
+    const handlers = new Set<DeviceOrientationHandler>();
 
+    // Use type assertion to match Window's addEventListener signature
     window.addEventListener = jest.fn(
-      (event: string, handler: EventListener) => {
-        if (event === "deviceorientation") {
-          handlers.add(handler);
+      (type: string, listener: EventListenerOrEventListenerObject) => {
+        if (type === "deviceorientation") {
+          handlers.add(listener as DeviceOrientationHandler);
         }
       },
-    );
+    ) as typeof window.addEventListener;
 
     window.removeEventListener = jest.fn(
-      (event: string, handler: EventListener) => {
-        if (event === "deviceorientation") {
-          handlers.delete(handler);
+      (type: string, listener: EventListenerOrEventListenerObject) => {
+        if (type === "deviceorientation") {
+          handlers.delete(listener as DeviceOrientationHandler);
         }
       },
-    );
+    ) as typeof window.removeEventListener;
 
     return handlers;
   };
@@ -56,12 +58,14 @@ describe("useMotionControls - Motion Detection", () => {
       await Promise.resolve();
     });
 
+    // Initialize at neutral position
     await act(async () => {
       handlers.forEach((handler) => handler(new MockDeviceOrientationEvent(0)));
       await Promise.resolve();
       jest.runAllTimers();
     });
 
+    // Fill smoothing buffer with neutral values
     await act(async () => {
       for (let i = 0; i < 5; i++) {
         handlers.forEach((handler) =>
@@ -72,6 +76,7 @@ describe("useMotionControls - Motion Detection", () => {
       jest.runAllTimers();
     });
 
+    // Simulate upward motion
     await act(async () => {
       mockNow = 1000;
 
@@ -112,12 +117,14 @@ describe("useMotionControls - Motion Detection", () => {
       await Promise.resolve();
     });
 
+    // Initialize at neutral position
     await act(async () => {
       handlers.forEach((handler) => handler(new MockDeviceOrientationEvent(0)));
       await Promise.resolve();
       jest.runAllTimers();
     });
 
+    // Fill smoothing buffer with neutral values
     await act(async () => {
       for (let i = 0; i < 5; i++) {
         handlers.forEach((handler) =>
@@ -128,6 +135,7 @@ describe("useMotionControls - Motion Detection", () => {
       jest.runAllTimers();
     });
 
+    // Simulate rapid motions
     await act(async () => {
       mockNow = 1000;
 
