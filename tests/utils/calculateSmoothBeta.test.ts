@@ -1,4 +1,3 @@
-// src/utils/calculateSmoothBeta.test.ts
 import { calculateSmoothedBeta } from "@/utils/calculateSmoothBeta";
 
 describe("calculateSmoothedBeta", () => {

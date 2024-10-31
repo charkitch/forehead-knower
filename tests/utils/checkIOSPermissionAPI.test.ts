@@ -1,4 +1,3 @@
-// tests/utils/checkIOSPermissionAPI.test.ts
 import { checkIOSPermissionAPI } from "@/utils/checkIOSPermissionAPI";
 
 describe("checkIOSPermissionAPI", () => {
