@@ -10,6 +10,7 @@ import { CurrentWord } from "@/components/CurrentWord";
 import { StartGameButton } from "@/components/StartGameButton";
 import { SpoilerWordsCheckbox } from "@/components/SpoilerWordsCheckbox";
 import { FeedbackMessage } from "@/components/FeedbackMessage";
+import { ScoreboardModal } from "@/components/ScoreboardModal";
 
 export default function Game() {
   const [gameState, setGameState] = useState<"ready" | "playing" | "finished">(
@@ -20,6 +21,9 @@ export default function Game() {
   const [currentWords, setCurrentWords] = useState<Word[]>([]);
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const [feedback, setFeedback] = useState<string | null>(null);
+  const [wordResults, setWordResults] = useState<("correct" | "incorrect")[]>(
+    [],
+  );
 
   const getCurrentWord = (): Word | null => {
     if (currentWords.length === 0 || currentWordIndex >= currentWords.length) {
@@ -31,20 +35,32 @@ export default function Game() {
   const TWO_SECONDS = 2000;
 
   const handleCorrect = () => {
-    if (feedback) return; // Don't handle new actions while feedback is showing
+    if (feedback) return;
     setFeedback("Correct!");
+    setWordResults((prev) => [...prev, "correct"]);
+
     setTimeout(() => {
       setFeedback(null);
-      setCurrentWordIndex((i) => (i + 1) % currentWords.length);
+      if (currentWordIndex === currentWords.length - 1) {
+        setGameState("finished");
+      } else {
+        setCurrentWordIndex((i) => i + 1);
+      }
     }, TWO_SECONDS);
   };
 
   const handleIncorrect = () => {
-    if (feedback) return; // Don't handle new actions while feedback is showing
+    if (feedback) return;
     setFeedback("Incorrect!");
+    setWordResults((prev) => [...prev, "incorrect"]);
+
     setTimeout(() => {
       setFeedback(null);
-      setCurrentWordIndex((i) => (i + 1) % currentWords.length);
+      if (currentWordIndex === currentWords.length - 1) {
+        setGameState("finished");
+      } else {
+        setCurrentWordIndex((i) => i + 1);
+      }
     }, TWO_SECONDS);
   };
 
@@ -64,6 +80,7 @@ export default function Game() {
 
     setCurrentWords(shuffled);
     setCurrentWordIndex(0);
+    setWordResults([]);
     setGameState("playing");
 
     if (isMotionEnabled) {
@@ -123,8 +140,15 @@ export default function Game() {
           <StartGameButton onClick={startGame} disabled={!selectedTheme} />
         </div>
       )}
-
       {gameState === "playing" && renderGameContent()}
+
+      {gameState === "finished" && (
+        <ScoreboardModal
+          words={currentWords}
+          results={wordResults}
+          onClose={() => setGameState("ready")}
+        />
+      )}
     </div>
   );
 }
